@@ -1,0 +1,84 @@
+{
+  "numTotalTestSuites": 1,
+  "numPassedTestSuites": 0,
+  "numFailedTestSuites": 1,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 4,
+  "numPassedTests": 1,
+  "numFailedTests": 1,
+  "numPendingTests": 1,
+  "numTodoTests": 1,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1792705802870,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "passes",
+          "status": "passed",
+          "title": "passes",
+          "duration": 1.565620999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "fails with useful diagnostics",
+          "status": "failed",
+          "title": "fails with useful diagnostics",
+          "duration": 5.496174999999994,
+          "failureMessages": [
+            "AssertionError: expected '/articles/1' to be '/articles/2' // Object.is equality\n    at /fixture/example.test.js:2:67\n    at file:///fixture/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:1632:35\n    at file:///fixture/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:2801:26\n    at file:///fixture/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3338:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///fixture/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3333:10)\n    at file:///fixture/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3318:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///fixture/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3276:10)\n    at file:///fixture/node_modules/vitest/dist/chunks/run.BPv-BBRv.js:3904:64"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "skipped",
+          "status": "skipped",
+          "title": "skipped",
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "future case",
+          "status": "todo",
+          "title": "future case",
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792705803036,
+      "endTime": 1792705803043.496,
+      "status": "failed",
+      "message": "",
+      "name": "/fixture/example.test.js"
+    }
+  ]
+}
