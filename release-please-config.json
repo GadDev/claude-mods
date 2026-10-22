@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "separate-pull-requests": true,
+  "include-component-in-tag": true,
+  "tag-separator": "-",
+  "bump-minor-pre-major": true,
+  "packages": {
+    "mods/context-studio": {
+      "release-type": "node",
+      "component": "context-studio",
+      "package-name": "@gaddev/context-studio",
+      "extra-files": [
+        { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" },
+        { "type": "json", "path": "/package-lock.json", "jsonpath": "$['packages']['mods/context-studio']['version']" }
+      ]
+    }
+  }
+}

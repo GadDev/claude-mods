@@ -1,0 +1,21 @@
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['**/*.md']
+design:
+  - changed-files:
+      - any-glob-to-any-file: ['docs/assets/**', 'mods/*/assets/**']
+tests:
+  - changed-files:
+      - any-glob-to-any-file: ['tests/**', '**/*.test.ts']
+ci/cd:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**', 'scripts/**', 'release-please-config.json', '.release-please-manifest.json']
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file: ['**/package.json', 'package-lock.json']
+'area: context-studio':
+  - changed-files:
+      - any-glob-to-any-file: ['mods/context-studio/**', 'tests/studio.test.ts', 'tests/runtime.test.ts']
+'area: infrastructure':
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**', 'scripts/**', 'tsconfig*.json', 'package*.json', '.claude-plugin/**', '*release-please*.json']

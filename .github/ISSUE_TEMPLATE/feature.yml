@@ -1,0 +1,17 @@
+name: Feature proposal
+description: Propose a focused mod or improvement.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Recurring problem and concrete example
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Smallest useful version
+      description: Include the user action, expected benefit, and how to measure it.
+    validations:
+      required: true
