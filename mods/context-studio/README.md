@@ -23,15 +23,15 @@ The pane shows a character count and a **rough characters ÷ 4 token estimate** 
 
 ## Commands
 
-| Command | Action |
-| --- | --- |
-| `/context-studio` | Open the pane |
-| `/context-studio goal Fix pagination boundaries` | Set the task |
-| `/context-studio add src/pagination.ts:1-25` | Add a source excerpt |
-| `/context-studio remove 1` | Remove the first excerpt |
-| `/context-studio preview` | Verify sources and print the packet |
-| `/context-studio draft` | Verify and append the packet to the prompt editor |
-| `/context-studio clear` | Clear task and excerpts |
+| Command                                          | Action                                            |
+| ------------------------------------------------ | ------------------------------------------------- |
+| `/context-studio`                                | Open the pane                                     |
+| `/context-studio goal Fix pagination boundaries` | Set the task                                      |
+| `/context-studio add src/pagination.ts:1-25`     | Add a source excerpt                              |
+| `/context-studio remove 1`                       | Remove the first excerpt                          |
+| `/context-studio preview`                        | Verify sources and print the packet               |
+| `/context-studio draft`                          | Verify and append the packet to the prompt editor |
+| `/context-studio clear`                          | Clear task and excerpts                           |
 
 Paths may contain spaces. They must be relative to the current working directory, use forward slashes, and name supported text files. Ranges are inclusive. Empty files cannot provide an excerpt.
 

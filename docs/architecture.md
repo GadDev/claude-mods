@@ -8,16 +8,16 @@ Context Studio prepares additional source context for a task. It does not contro
 
 ## Repository layout
 
-| Path | Responsibility |
-| --- | --- |
-| `.claude-plugin/marketplace.json` | Catalog of independently installable plugins |
-| `mods/<name>/.claude-plugin/plugin.json` | Independent plugin metadata and version |
-| `mods/<name>/hooks/` | Claude Code entry points and event handlers |
-| `mods/<name>/src/` | Host-independent domain logic |
-| `tests/` | Node tests for core behavior and runtime adapter contracts |
-| `scripts/` | Repository validation and pinned API-type retrieval |
-| `docs/` | Maintainer guidance, decisions, roadmap, and measurement |
-| `.github/` | CI, releases, labels, issue forms, and contributor templates |
+| Path                                     | Responsibility                                               |
+| ---------------------------------------- | ------------------------------------------------------------ |
+| `.claude-plugin/marketplace.json`        | Catalog of independently installable plugins                 |
+| `mods/<name>/.claude-plugin/plugin.json` | Independent plugin metadata and version                      |
+| `mods/<name>/hooks/`                     | Claude Code entry points and event handlers                  |
+| `mods/<name>/src/`                       | Host-independent domain logic                                |
+| `tests/`                                 | Node tests for core behavior and runtime adapter contracts   |
+| `scripts/`                               | Repository validation and pinned API-type retrieval          |
+| `docs/`                                  | Maintainer guidance, decisions, roadmap, and measurement     |
+| `.github/`                               | CI, releases, labels, issue forms, and contributor templates |
 
 There are no empty shared-package or browser-app workspaces. Add them only when working code needs them.
 

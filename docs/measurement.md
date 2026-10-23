@@ -14,13 +14,13 @@ For Pro/Max, compare available usage evidence cautiously. Local API-equivalent c
 
 ## Report
 
-| Field | Required evidence |
-| --- | --- |
-| Scenario | Fixed repository commit and task |
-| Outcome | Acceptance checks and correctness review |
-| Usage | Provider-reported totals, including follow-up work and any summarization |
-| Local size | Exact character count; token heuristic explicitly marked estimated |
-| Tradeoffs | Missing context, extra retrieval, user effort, failures, uncertainty |
+| Field      | Required evidence                                                        |
+| ---------- | ------------------------------------------------------------------------ |
+| Scenario   | Fixed repository commit and task                                         |
+| Outcome    | Acceptance checks and correctness review                                 |
+| Usage      | Provider-reported totals, including follow-up work and any summarization |
+| Local size | Exact character count; token heuristic explicitly marked estimated       |
+| Tradeoffs  | Missing context, extra retrieval, user effort, failures, uncertainty     |
 
 Do not advertise a savings percentage until repeated end-to-end trials support it. No savings benchmark has been established for this prototype.
 

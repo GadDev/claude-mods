@@ -2,14 +2,14 @@
 
 Documentation verified against official Anthropic pages on **22 October 2026**. Native marketplace/plugin validation and testing-kit checks pass on **2.1.308**. Test your own installed build before treating this prototype as production-ready.
 
-| Surface | Expectation |
-| --- | --- |
-| CLI terminal, 2.1.287+ | Native pane and commands; primary target |
-| Claude Desktop Code tab | Native elements when its bundled engine supports mods; needs local smoke testing |
+| Surface                     | Expectation                                                                        |
+| --------------------------- | ---------------------------------------------------------------------------------- |
+| CLI terminal, 2.1.287+      | Native pane and commands; primary target                                           |
+| Claude Desktop Code tab     | Native elements when its bundled engine supports mods; needs local smoke testing   |
 | VS Code extension, 2.1.299+ | Standard pane elements, with some styling props ignored; needs local smoke testing |
-| Remote Control | Mod drawing stays in the terminal on your machine |
-| Cloud sessions | Hooks may run if installed; native mod drawings do not appear |
-| Headless / Agent SDK | Text command replies; no interactive pane or draft editor |
+| Remote Control              | Mod drawing stays in the terminal on your machine                                  |
+| Cloud sessions              | Hooks may run if installed; native mod drawings do not appear                      |
+| Headless / Agent SDK        | Text command replies; no interactive pane or draft editor                          |
 
 Source: [where mods run](https://code.claude.com/docs/en/plugins/mods/overview#where-mods-run) and [elements by surface](https://code.claude.com/docs/en/plugins/mods/reference). The documented minimum is not a record of a successful live smoke test. Current test evidence is recorded in PRs and releases.
 

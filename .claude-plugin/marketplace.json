@@ -1,7 +1,9 @@
 {
   "name": "gaddev-mods",
   "owner": { "name": "GadDev" },
-  "metadata": { "description": "Focused Claude Code mods for deliberate context and useful interfaces." },
+  "metadata": {
+    "description": "Focused Claude Code mods for deliberate context and useful interfaces."
+  },
   "plugins": [
     {
       "name": "context-studio",

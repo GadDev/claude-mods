@@ -13,11 +13,11 @@ An independent collection by [GadDev](https://github.com/GadDev). Each mod is an
 
 ## Available mods
 
-| Mod | Purpose | Status |
-| --- | --- | --- |
+| Mod                                             | Purpose                                                                           | Status                        |
+| ----------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------- |
 | [Context Studio](mods/context-studio/README.md) | Select source excerpts, inspect a task packet, and append it to your prompt draft | Experimental prototype, 0.1.0 |
-| [Output Lens](mods/output-lens/README.md) | Inspect a Vitest JSON report and retrieve bounded diagnostics on demand | Experimental prototype, 0.1.0 |
-| [Retry Map](mods/retry-map/README.md) | Inspect identical Bash failures before another retry | Experimental prototype, 0.1.0 |
+| [Output Lens](mods/output-lens/README.md)       | Inspect a Vitest JSON report and retrieve bounded diagnostics on demand           | Experimental prototype, 0.1.0 |
+| [Retry Map](mods/retry-map/README.md)           | Inspect identical Bash failures before another retry                              | Experimental prototype, 0.1.0 |
 
 Instruction Workbench, Task Capsules, Agent Budget Board, and Symbol Navigator remain [roadmap ideas](docs/roadmap.md). They are not installable yet.
 

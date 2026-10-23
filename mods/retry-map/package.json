@@ -1,3 +1,7 @@
 {
-  "name": "@gaddev/retry-map", "version": "0.1.0", "private": true, "type": "module", "license": "MIT"
+  "name": "@gaddev/retry-map",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT"
 }

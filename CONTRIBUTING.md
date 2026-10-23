@@ -12,6 +12,17 @@ npm run check
 
 Use Node.js 24+, TypeScript strict mode, ESM, two-space indentation, and LF line endings. Runtime modules run in Claude Code's environment: use the mods API for I/O, not Node imports, browser globals, or an implicit shell. Keep imports inside the installed plugin directory.
 
+## Formatting and linting
+
+`npm ci` installs the Husky pre-commit hook. On commit, lint-staged runs Oxlint on staged JavaScript/TypeScript and Oxfmt on supported staged source, JSON, YAML, Markdown, and styles. Formatting fixes are included in the commit; lint failures block it. Unstaged changes stay unstaged through lint-staged’s default backup and partial-staging handling.
+
+- `npm run lint` checks the repository; `npm run lint:fix` applies available fixes.
+- `npm run format` formats files; `npm run format:check` checks without writing.
+- `npm run check:staged` runs the commit checks manually.
+- `npm run check` includes lint, format, validation, types, and tests, including native checks. CI and releases run this full command with `HUSKY=0`.
+
+Oxc configuration excludes caches and generated output. Oxfmt leaves generated changelogs to Release Please and automatically ignores lockfiles. Keep the lockfile committed after dependency updates.
+
 ## Pull requests
 
 1. Create a short branch such as `feat/context-studio-preview`.
