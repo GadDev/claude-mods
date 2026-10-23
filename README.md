@@ -2,10 +2,6 @@
 
 Focused tools for deliberate context, useful interfaces, and less wasted work in Claude Code.
 
-<img src="mods/context-studio/assets/icon.png" width="112" alt="Context Studio: an open folio gathering selected source tabs" />
-<img src="mods/output-lens/assets/icon.png" width="112" alt="Output Lens: a magnifying lens revealing useful diagnostic lines" />
-<img src="mods/retry-map/assets/icon.png" width="112" alt="Retry Map: a looping path with a breakout arrow" />
-
 [![CI](https://github.com/GadDev/claude-mods/actions/workflows/ci.yml/badge.svg)](https://github.com/GadDev/claude-mods/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-51796E.svg)](LICENSE)
 
@@ -13,13 +9,26 @@ An independent collection by [GadDev](https://github.com/GadDev). Each mod is an
 
 ## Available mods
 
-| Mod                                             | Purpose                                                                           | Status                        |
-| ----------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------- |
-| [Context Studio](mods/context-studio/README.md) | Select source excerpts, inspect a task packet, and append it to your prompt draft | Experimental prototype, 0.1.0 |
-| [Output Lens](mods/output-lens/README.md)       | Inspect a Vitest JSON report and retrieve bounded diagnostics on demand           | Experimental prototype, 0.1.0 |
-| [Retry Map](mods/retry-map/README.md)           | Inspect identical Bash failures before another retry                              | Experimental prototype, 0.1.0 |
+Each available mod has its own icon, documentation, and installation. These are experimental prototypes at version 0.1.0.
 
-Instruction Workbench, Task Capsules, Agent Budget Board, and Symbol Navigator remain [roadmap ideas](docs/roadmap.md). They are not installable yet.
+| Icon                                                                                                                            | Mod                                             | What it helps you do                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| <img src="mods/context-studio/assets/icon.png" width="80" alt="Context Studio: an open folio gathering selected source tabs" /> | [Context Studio](mods/context-studio/README.md) | Select source excerpts, verify their freshness, and append a reviewed task packet to your prompt draft.            |
+| <img src="mods/output-lens/assets/icon.png" width="80" alt="Output Lens: a magnifying lens revealing diagnostic lines" />       | [Output Lens](mods/output-lens/README.md)       | Inspect a selected Vitest JSON report and retrieve bounded summaries, individual diagnostics, or raw report pages. |
+| <img src="mods/retry-map/assets/icon.png" width="80" alt="Retry Map: a looping path with a breakout arrow" />                   | [Retry Map](mods/retry-map/README.md)           | Recognize identical Bash failures and inspect retry history without blocking commands or changing tool results.    |
+
+## Planned mods
+
+These concepts have custom artwork and a [roadmap](docs/roadmap.md), but are not installable yet.
+
+| Icon                                                                                                                                        | Mod                   | Planned purpose                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------ |
+| <img src="docs/assets/icons/instruction-workbench.png" width="80" alt="Instruction Workbench: instruction cards on a drafting workbench" /> | Instruction Workbench | Review duplicated instructions and their scope, with source references and proposed edits. |
+| <img src="docs/assets/icons/task-capsules.png" width="80" alt="Task Capsules: a compact capsule holding a task card" />                     | Task Capsules         | Prepare a reviewed handoff with decisions and source freshness for a separate task.        |
+| <img src="docs/assets/icons/agent-budget-board.png" width="80" alt="Agent Budget Board: task tiles connected to a resource dial" />         | Agent Budget Board    | Preview worker scope and resource choices before starting agents.                          |
+| <img src="docs/assets/icons/symbol-navigator.png" width="80" alt="Symbol Navigator: code braces around a compass" />                        | Symbol Navigator      | Select definitions and references with provenance and bounded retrieval.                   |
+
+See the [icon gallery](docs/icons.md) for the original artwork and asset details.
 
 ## Try Output Lens and Retry Map
 
@@ -65,6 +74,16 @@ npm run types:fetch
 npm run check
 claude --plugin-dir ./mods/context-studio
 ```
+
+`npm ci` installs the Husky pre-commit hook. It uses lint-staged to lint staged code with Oxlint and format supported staged files with Oxfmt, preserving unstaged edits.
+
+```sh
+npm run lint          # Check code with Oxlint
+npm run format        # Apply Oxfmt formatting
+npm run format:check  # Check formatting without writing
+```
+
+`npm run check` runs lint, formatting, repository validation, TypeScript, and Node/native tests. The same command runs in CI. See [contributing](CONTRIBUTING.md) for the full workflow.
 
 The type-fetch step verifies a pinned copy of Anthropic's official declarations. Runtime code has no third-party dependencies and no build step. [Development and testing](docs/development.md) covers the local Claude validation commands and their limits.
 
