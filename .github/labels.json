@@ -98,5 +98,10 @@
     "name": "area: instruction-workbench",
     "color": "51796E",
     "description": "Instruction Workbench plugin and tests."
+  },
+  {
+    "name": "area: task-capsules",
+    "color": "51796E",
+    "description": "Task Capsules plugin and tests."
   }
 ]

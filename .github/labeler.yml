@@ -50,3 +50,6 @@ dependencies:
   - changed-files:
       - any-glob-to-any-file:
           ['mods/instruction-workbench/**', 'tests/instruction-workbench.test.ts']
+'area: task-capsules':
+  - changed-files:
+      - any-glob-to-any-file: ['mods/task-capsules/**', 'tests/task-capsules.test.ts']
