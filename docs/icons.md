@@ -2,15 +2,15 @@
 
 Seven original transparent PNG illustrations share a cut-paper identity: warm terracotta, muted sage, charcoal, tactile grain, and a distinct silhouette for each tool. They were generated individually with the built-in image generation tool on 22 October 2026. They are illustrations for documentation and listing artwork; use simple native text labels for small terminal controls.
 
-Context Studio, Output Lens, and Retry Map are implemented. The other four icons represent roadmap concepts.
+Context Studio, Output Lens, Retry Map, Instruction Workbench, Task Capsules, and Agent Budget Board are implemented. Symbol Navigator remains a roadmap concept.
 
 | Context Studio                                                                                              | Output Lens                                                                                                | Retry Map                                                                                            |
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | <img src="../mods/context-studio/assets/icon.png" width="160" alt="Open folio with selected source tabs" /> | <img src="../mods/output-lens/assets/icon.png" width="160" alt="Lens revealing useful diagnostic lines" /> | <img src="../mods/retry-map/assets/icon.png" width="160" alt="Looping path with a breakout arrow" /> |
 
-| Instruction Workbench                                                                                               | Task Capsules                                                                                      | Agent Budget Board                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| <img src="assets/icons/instruction-workbench.png" width="160" alt="Workbench with instruction cards and a ruler" /> | <img src="assets/icons/task-capsules.png" width="160" alt="Compact capsule holding a task card" /> | <img src="assets/icons/agent-budget-board.png" width="160" alt="Three task tiles connected to a resource dial" /> |
+| Instruction Workbench                                                                                                      | Task Capsules                                                                                             | Agent Budget Board                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| <img src="../mods/instruction-workbench/assets/icon.png" width="160" alt="Workbench with instruction cards and a ruler" /> | <img src="../mods/task-capsules/assets/icon.png" width="160" alt="Compact capsule holding a task card" /> | <img src="../mods/agent-budget-board/assets/icon.png" width="160" alt="Three task tiles connected to a resource dial" /> |
 
 <img src="assets/icons/symbol-navigator.png" width="160" alt="Symbol Navigator: code braces around a compass" />
 
@@ -18,7 +18,7 @@ Context Studio, Output Lens, and Retry Map are implemented. The other four icons
 
 ## Asset locations
 
-Implemented mods ship their icons inside `mods/<name>/assets/icon.png`, declared in each manifest. The four remaining concept assets and the documentation originals for Output Lens and Retry Map are in `docs/assets/icons/`. All are square RGBA PNGs with transparency. Originals are retained without recompression or cropping. The icon set follows the repository's MIT license.
+Implemented mods ship their icons inside `mods/<name>/assets/icon.png`, declared in each manifest. The remaining Symbol Navigator concept asset and the documentation originals for Output Lens, Retry Map, Instruction Workbench, Task Capsules, and Agent Budget Board are in `docs/assets/icons/`. All are square RGBA PNGs with transparency. Originals are retained without recompression or cropping. The icon set follows the repository's MIT license.
 
 ## Prompt set
 

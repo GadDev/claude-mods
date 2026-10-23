@@ -1,0 +1,14 @@
+{
+  "name": "agent-budget-board",
+  "version": "0.1.0",
+  "description": "Review planned worker roles, scope overlap, model preferences, and concurrency before deciding whether to delegate.",
+  "author": {
+    "name": "GadDev",
+    "url": "https://github.com/GadDev"
+  },
+  "homepage": "https://github.com/GadDev/claude-mods",
+  "repository": "https://github.com/GadDev/claude-mods",
+  "license": "MIT",
+  "icon": "./assets/icon.png",
+  "keywords": ["agents", "planning", "mods"]
+}

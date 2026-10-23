@@ -10,10 +10,5 @@
   "repository": "https://github.com/GadDev/claude-mods",
   "license": "MIT",
   "icon": "./assets/icon.png",
-  "keywords": [
-    "vitest",
-    "diagnostics",
-    "context",
-    "mods"
-  ]
+  "keywords": ["vitest", "diagnostics", "context", "mods"]
 }
