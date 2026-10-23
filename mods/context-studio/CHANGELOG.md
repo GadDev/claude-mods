@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/GadDev/claude-mods/compare/context-studio-v1.0.0...context-studio-v1.1.0) (2026-10-23)
+
+
+### Features
+
+* **mods:** add Output Lens, Retry Map, and development checks ([#7](https://github.com/GadDev/claude-mods/issues/7)) ([607b6c5](https://github.com/GadDev/claude-mods/commit/607b6c5d837ab4e9af9ab97fd4a689325ae49408))
+
 ## 1.0.0 (2026-10-23)
 
 
