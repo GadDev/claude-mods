@@ -1,6 +1,8 @@
 {
   "name": "gaddev-mods",
-  "owner": { "name": "GadDev" },
+  "owner": {
+    "name": "GadDev"
+  },
   "metadata": {
     "description": "Focused Claude Code mods for deliberate context and useful interfaces."
   },
@@ -19,6 +21,11 @@
       "name": "retry-map",
       "source": "./mods/retry-map",
       "description": "Inspect repeated Bash tool failures without changing tool execution."
+    },
+    {
+      "name": "instruction-workbench",
+      "source": "./mods/instruction-workbench",
+      "description": "Review explicitly selected instruction files for exact duplicate guidance without model calls or file edits."
     }
   ]
 }

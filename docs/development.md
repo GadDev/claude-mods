@@ -45,6 +45,8 @@ For Output Lens, generate a JSON report with your installed Vitest, then use `/o
 
 For Retry Map, use a disposable project to repeat one failing command three times. Verify one warning appears and the original results remain intact. Change code with a file tool and verify a new comparison group, then run a successful command and inspect its resolved status. Shell and external edits are deliberately not inferred.
 
+For Instruction Workbench, add two project instruction files with an intentional repeated guidance line, audit, and inspect the referenced locations and scope caveat. Change a selected file and verify that audit/page refuses stale evidence and clears the selection. Opening the pane must perform no reads; no audit action may write files or call a model. Compare a reviewed sample with Claude's built-in `/doctor prompt-audit` before claiming broader usefulness.
+
 ## API upgrades
 
 Read [Anthropic's mod creation guide](https://code.claude.com/docs/en/plugins/mods/create) and regenerate your installed types using `/plugin-types`. Review the declaration diff before changing the pinned official revision and checksum in `scripts/fetch-mod-types.ts`. Keep the documented baseline, source APIs, CI, and smoke-test results aligned. Never suppress incompatible API fields with `any`.

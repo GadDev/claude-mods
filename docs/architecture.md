@@ -33,6 +33,8 @@ Draft insertion uses `prompt.fill` with append mode. It preserves an existing dr
 
 ## Sharing and packaging
 
+Instruction Workbench explicitly selects local instruction sources through a filesystem port. Its pure scanner groups exact guidance lines, retaining source locations and lexical scope labels. It never follows imports or simulates the engine's loading rules. Every audit and report page verifies all selected source hashes. Findings propose human review without writing files, creating skills, registering model-facing tools, or modifying prompts. The plugin keeps all state in memory and ships independently.
+
 Output Lens loads a user-selected local JSON report through filesystem ports. Its parser validates counts and assertion evidence, formats bounded summaries, and pages complete diagnostics or raw report text. The registered `report` tool can only query this selection. Every query rechecks the report fingerprint and working directory. It does not observe a test process or verify the tested source revision; statuses describe report evidence only.
 
 Retry Map observes Bash outcomes after the existing tool chain returns. It groups exact command/error fingerprints per agent and observed file-tool edit period. A bounded history drives its pane. The original result is returned unchanged, including failures, denials, and permission behavior. Lifecycle generations prevent pending old observations from entering a new session. It has no filesystem port or model-facing tool.
