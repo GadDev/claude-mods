@@ -31,6 +31,12 @@ The pane uses standard `Box`, `Text`, `Input`, `Button`, and `Code` elements. So
 
 Draft insertion uses `prompt.fill` with append mode. It preserves an existing draft and leaves sending to the user. A later file edit does not rewrite or retract a prepared draft.
 
+## Symbol Navigator flow
+
+The explicit Node command `npm run symbols:index` uses an isolated, pinned TypeScript 6 compiler API dependency. It resolves one standalone tsconfig and local imports, rejects project references and unresolved/erroneous projects, and emits a strict bounded JSON index with locations and local input hashes rather than source text. It never emits or executes project code. Config inheritance, input/dependency size budgets, unsafe paths, output overwrite protection, and end-of-analysis hash verification bound this operation. TypeScript 7 remains the repository checker.
+
+The independently packaged native reader has no Node/compiler dependency. Loading reads only the chosen JSON. Explicit retrieval verifies the index plus all recorded local inputs, then allows paged name search, definition selection, and reference toggles. Packet preparation reads from those verified source snapshots, labels long-definition excerpts, and refuses oversized packets. Failed freshness checks clear state. Explicit draft insertion appends without sending. Newly added glob matches and unrecorded dependency changes require manual regeneration; this is recorded-input freshness, not full graph validation. The pane does no I/O during rendering.
+
 ## Sharing and packaging
 
 Agent Budget Board keeps a bounded, human-authored worker plan in memory. Its pure analyzer compares exact path/directory labels, distinguishes shared reading from write-involved overlap, flags repeated roles/tasks, and groups workers in list order into suggested batches. It accesses no filesystem or model metadata and intercepts no worker starts. Canonical-plan fingerprints bind review and local approval to saved data; every successful mutation invalidates both. Explicit draft insertion is available only after completeness checks and acknowledgment of remaining warnings. Concurrency, model preference, access, and approval are advisory labels rather than engine controls. JSON export carries no approval state; pasted JSON load is strict, transactional, and resets approval.
@@ -43,7 +49,7 @@ Output Lens loads a user-selected local JSON report through filesystem ports. It
 
 Retry Map observes Bash outcomes after the existing tool chain returns. It groups exact command/error fingerprints per agent and observed file-tool edit period. A bounded history drives its pane. The original result is returned unchanged, including failures, denials, and permission behavior. Lifecycle generations prevent pending old observations from entering a new session. It has no filesystem port or model-facing tool.
 
-Both implementations remain self-contained. `scripts/check-native.ts` discovers every marketplace entry and runs native validation and tests with the pinned development CLI, so adding a plugin cannot silently omit its native checks.
+All native implementations remain self-contained. `scripts/check-native.ts` discovers every marketplace entry and runs native validation and tests with the pinned development CLI, so adding a plugin cannot silently omit its native checks.
 
 No runtime imports may escape a plugin directory. If two mods later share logic, extract a package and copy or bundle its required code into each installed artifact. Do not assume a sibling workspace exists in Claude Code's plugin cache.
 
@@ -56,4 +62,4 @@ A future browser companion should reuse domain contracts, with a separate adapte
 - One release component per working mod, managed with Release Please.
 - No automatic model calls, prompt submission, agent starts, or telemetry in Context Studio.
 - Conservative fingerprints: any source-file change invalidates its selected ranges.
-- Human selection is the MVP; automatic relevance and symbol navigation remain future work.
+- Human selection remains explicit; Symbol Navigator adds bounded indexing, while automatic relevance and cross-project graph support remain future work.

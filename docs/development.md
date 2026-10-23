@@ -39,7 +39,7 @@ Inside that session:
 
 Verify the pane with `/context-studio`. Check keyboard focus, wrapping in a narrow terminal, removal controls, appending to an existing draft, and dismissal. Confirm opening the pane performs no source reads or model calls. Then edit the selected source outside the mod and verify that preview/draft refuses the stale snapshot. Clear and resume a session and verify the old packet disappears.
 
-Run `claude plugin validate` again after changes. The tests in each `mods/<name>/tests/` use `claude-code/testing`; the root `tests/` use Node. Keep their runners separate. Native test results do not replace a manual smoke test with your own terminal or app.
+Run `claude plugin validate` again after changes. The tests in each `mods/<name>/tests/` use `claude-code/testing`; the root `tests/` use Node. Keep their runners separate. Native test results do not replace a manual smoke test with your own terminal or app. The native check runner disables CLI nonessential traffic (telemetry, feature-flag fetches, and update checks) through the [documented environment control](https://code.claude.com/docs/en/env-vars); the [testing kit](https://code.claude.com/docs/en/plugins/mods/test) uses stubs without a signed-in session.
 
 For Output Lens, generate a JSON report with your installed Vitest, then use `/output-lens load <path.json>` and inspect it through both the pane and `mcp__output-lens__report`. Replace the report and verify stale selection is rejected. The committed mixed-result fixture was captured from Vitest 5.0.5, with environment-specific paths normalized. It includes pass, failure, skipped, and todo cases; ongoing tests do not install or execute Vitest.
 
@@ -50,6 +50,18 @@ For Instruction Workbench, add two project instruction files with an intentional
 For Task Capsules, author a goal, decision, unresolved check, and one file reference in the pane. Export JSON, save only the JSON body to a local file, then import it in a fresh interactive session in the same project. Confirm that import alone does not read references, preview shows their status, and draft insertion appends without sending. Change a referenced file and verify draft insertion refuses it until explicit refresh/removal. Check malformed imports and missing prompt editors preserve notes. Inspect empty and populated panes on your actual terminal or app; native test trees do not prove visual layout.
 
 For Agent Budget Board, add two complete planned workers with overlapping scopes, including one planned writer. Review all report pages, verify that approval needs explicit warning acknowledgment, then narrow a scope and confirm review/approval reset. Exercise model preferences, access selection, and concurrency in the pane. Approved draft insertion must append without sending, starting agents, or changing host settings. Export/reload the plan and confirm approval is lost. Also inspect a disjoint plan and the suggested batches on your actual terminal or app; no live delegation or cost measurement is part of native tests.
+
+The TypeScript check invokes the pinned `typescript` package by path. The separate `typescript-compiler-api` npm alias also ships a `tsc` binary; an unqualified `tsc` may resolve to that older compiler after installation. The explicit path keeps repository checks on TypeScript 7.
+
+## Symbol Navigator smoke test
+
+From this repository checkout, generate an index for a small standalone TypeScript project:
+
+```sh
+npm run symbols:index -- --project /absolute/project/tsconfig.json --output /absolute/project/symbol-index.json
+```
+
+The output must not exist. Start Claude in the selected config's directory, install/load Symbol Navigator, and explicitly load the JSON. Search a symbol with renamed imports and another same-name definition; select by ID/location. Choose two reference rows, preview, page the packet, and append to an existing draft without sending. Edit an indexed source or config and verify the next retrieval clears the stale selection and refuses insertion. Rebuild into a new index file and reload. Confirm opening/rendering the pane reads no files, and inspect keyboard focus/wrapping in your actual terminal or app. Native tests do not establish visual quality or token savings. The reader's tracked-input hashes cannot detect newly added glob matches or unrecorded dependency changes; regenerate after those changes.
 
 ## API upgrades
 

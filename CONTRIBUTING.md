@@ -23,6 +23,8 @@ Use Node.js 24+, TypeScript strict mode, ESM, two-space indentation, and LF line
 
 Oxc configuration excludes caches and generated output. Oxfmt leaves generated changelogs to Release Please and automatically ignores lockfiles. Keep the lockfile committed after dependency updates.
 
+Symbol Navigator’s explicit generator uses `npm run symbols:index -- --project <absolute-tsconfig> --output <new-json>`. It runs in Node tooling with a pinned compiler API dependency; native runtime code remains dependency-free. See its [generation and freshness contract](mods/symbol-navigator/README.md).
+
 ## Pull requests
 
 1. Create a short branch such as `feat/context-studio-preview`.
