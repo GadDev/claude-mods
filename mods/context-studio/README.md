@@ -2,7 +2,7 @@
 
 <img src="assets/icon.png" width="112" alt="Context Studio: an open folio gathering selected source tabs" />
 
-**Experimental 0.1.0.** A small task-packet builder for Claude Code. Select exact source ranges, inspect the result, and append it to a prompt draft for human review.
+**Version 1.0.0.** A small task-packet builder for Claude Code. Select exact source ranges, inspect the result, and append it to a prompt draft for human review.
 
 ## Install
 

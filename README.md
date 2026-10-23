@@ -9,7 +9,7 @@ An independent collection by [GadDev](https://github.com/GadDev). Each mod is an
 
 ## Available mods
 
-Each available mod has its own icon, documentation, and installation. These are experimental prototypes at version 0.1.0.
+Each available mod has its own icon, documentation, and installation. Context Studio is at version 1.0.0; Output Lens and Retry Map are experimental prototypes at version 0.1.0.
 
 | Icon                                                                                                                            | Mod                                             | What it helps you do                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |

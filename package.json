@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@anthropic-ai/claude-code": "2.1.308",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.5",
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
     "oxfmt": "0.74.0",

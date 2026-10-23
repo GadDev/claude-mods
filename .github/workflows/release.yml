@@ -18,12 +18,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out the exact main revision
-        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
       - name: Set up Node.js and the npm download cache
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
           cache: npm
@@ -47,7 +47,7 @@ jobs:
     steps:
       # A fresh runner runs only the pinned API-based action: no checkout, npm, or PR code.
       - name: Prepare version PRs or publish approved GitHub releases
-        uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         with:
           token: ${{ secrets.GH_TOKEN || github.token }}
           config-file: release-please-config.json
