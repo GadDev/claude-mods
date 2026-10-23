@@ -2,7 +2,20 @@
 
 <img src="assets/icon.png" width="128" alt="Symbol Navigator: code braces around a compass" />
 
-**Experimental 0.1.0.** Search a local TypeScript symbol index, distinguish definitions by location, and retrieve a definition plus selected identifier references. Every retrieval rechecks recorded input hashes. Source packets are bounded and inserted only through an explicit append action.
+**Experimental workflow.** Search a local TypeScript symbol index, distinguish definitions by location, and retrieve a definition plus selected identifier references. Every retrieval rechecks recorded input hashes. Source packets are bounded and inserted only through an explicit append action.
+
+## First run: use the demo
+
+From a checkout of GadDev/claude-mods with Node 24+:
+
+```sh
+npm ci
+npm run symbols:demo
+```
+
+Follow the printed launch commands. Setup creates a fresh temporary TypeScript project and a generated index; it does not start Claude or edit the committed demo. Load `symbol-index.json`, search `quoteTotal`, choose `src/pricing.ts`, select a checkout reference, and preview. The [guided test drive](../../examples/symbol-navigator/README.md) includes expected results and a deliberate stale-source/rebuild exercise. `npm run symbols:demo -- --check` rehearses it without Claude or model calls and cleans up its temporary copy.
+
+In the pane, **Quick start and demo instructions** (or `/symbol-navigator help`) shows the setup steps without reading files. Use Previous/Next buttons for matches, references, and packet pages. A new search clears the previous definition/reference selection so a draft cannot accidentally use the old result. Draft insertion remains an explicit append action.
 
 ## Generate an index
 
@@ -31,7 +44,7 @@ Generation emits no JavaScript, executes no project modules, tsconfig plugins, n
 /symbol-navigator find createSession
 ```
 
-Choose an ID from the search results, for example:
+Choose the ID matching the definition location in your actual search results. The IDs and reference numbers below are examples, not fixed demo IDs:
 
 ```text
 /symbol-navigator show s12
@@ -45,6 +58,7 @@ Open `/symbol-navigator` for the native pane. It provides index loading, search 
 
 | Command               | Behavior                                                                        |
 | --------------------- | ------------------------------------------------------------------------------- |
+| `help`                | Show first-run instructions without reading files                               |
 | `load <path.json>`    | Validate the selected index; read no referenced source yet                      |
 | `find <name>`         | Case-insensitive substring search, eight results at a time                      |
 | `results <offset>`    | Search page using a zero-based row offset                                       |
@@ -56,7 +70,7 @@ Open `/symbol-navigator` for the native pane. It provides index loading, search 
 | `draft`               | Verify again and append to the existing prompt draft; never send                |
 | `clear`               | Forget the index and all selections                                             |
 
-Command replies provide the complete packet up to its limit. The pane displays at most 4000 report characters; use packet pages for the rest. Missing editors leave the selection available for preview and copying. Session lifecycle events clear memory. No discovery, indexing, reads, writes, model calls, tool registration, or agent starts occur during rendering. The native reader makes no filesystem writes at all.
+Command replies provide the complete packet up to its limit. Each pane packet page contains up to 4000 source-packet characters, with the page range shown separately so headers cannot hide source text. Previous/Next controls reverify inputs on every page. Numeric offset commands remain available for direct navigation. Search/reference report previews are bounded; their complete location lists are accessible through the paged controls. Missing editors leave the selection available for preview and copying. Session lifecycle events clear memory. No discovery, indexing, reads, writes, model calls, tool registration, or agent starts occur during rendering. The native reader makes no filesystem writes at all.
 
 ## Freshness and provenance
 
@@ -74,6 +88,6 @@ Packets identify paths, source lines/columns, and whole-file hashes. Definitions
 - Compiler dependency reads: at most 512 reads, 8 MiB per file, 32 MiB combined; AST traversal at most 500,000 nodes. These are size/work bounds, not a wall-clock or memory guarantee.
 - Eight selected references; packets at most 16,000 characters. Oversized packets fail without inserting partial source. Search/reference lists are paged, not truncated permanently.
 
-Node tests cover actual tsconfig resolution, aliases, same-name definitions, CLI generation plus reader retrieval, refusal cases, strict JSON, source/config/index freshness, filesystem boundaries, selection, and packet limits. Native testing-kit tests exercise commands and actual pane controls on terminal, desktop, and VS Code. A live interactive smoke test and measured context savings remain unverified. See [development](../../docs/development.md).
+Node tests cover actual tsconfig resolution, aliases, same-name definitions, CLI generation plus reader retrieval, refusal cases, strict JSON, source/config/index freshness, filesystem boundaries, selection, and packet limits. Native testing-kit tests exercise commands and actual pane controls on terminal, desktop, and VS Code. The runnable demo also rehearses indexing, selection, stale refusal, and rebuild/reload on real temporary files. A live interactive visual smoke test and measured context savings remain unverified. See [development](../../docs/development.md).
 
 Compiler references: [official compiler API](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API) and [project references](https://www.typescriptlang.org/docs/handbook/project-references), checked 23 October 2026.

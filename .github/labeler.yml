@@ -62,6 +62,9 @@ dependencies:
           [
             'mods/symbol-navigator/**',
             'scripts/index-symbols.ts',
+            'scripts/demo-symbols.ts',
+            'examples/symbol-navigator/**',
+            'tests/symbol-demo.test.ts',
             'scripts/lib/symbol-index.ts',
             'tests/symbol-navigator.test.ts',
             'tests/symbol-index.test.ts',

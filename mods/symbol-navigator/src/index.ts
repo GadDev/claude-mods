@@ -306,6 +306,9 @@ export class Navigator {
       throw new Error('Enter a symbol query of 1–120 characters.');
     this.query = query.trim();
     this.resultOffset = 0;
+    this.activeId = '';
+    this.selected.clear();
+    this.referenceOffset = 0;
     return this.resultsText();
   }
   private resultsText(): string {

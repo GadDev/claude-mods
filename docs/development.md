@@ -55,13 +55,18 @@ The TypeScript check invokes the pinned `typescript` package by path. The separa
 
 ## Symbol Navigator smoke test
 
-From this repository checkout, generate an index for a small standalone TypeScript project:
+Start with the [guided disposable demo](../examples/symbol-navigator/README.md):
 
 ```sh
-npm run symbols:index -- --project /absolute/project/tsconfig.json --output /absolute/project/symbol-index.json
+npm run symbols:demo
+npm run symbols:demo -- --check
 ```
 
-The output must not exist. Start Claude in the selected config's directory, install/load Symbol Navigator, and explicitly load the JSON. Search a symbol with renamed imports and another same-name definition; select by ID/location. Choose two reference rows, preview, page the packet, and append to an existing draft without sending. Edit an indexed source or config and verify the next retrieval clears the stale selection and refuses insertion. Rebuild into a new index file and reload. Confirm opening/rendering the pane reads no files, and inspect keyboard focus/wrapping in your actual terminal or app. Native tests do not establish visual quality or token savings. The reader's tracked-input hashes cannot detect newly added glob matches or unrecorded dependency changes; regenerate after those changes.
+The first command retains a fresh temporary project/index and prints exact launch/rebuild commands; the second rehearses compiler generation, same-name separation, alias references, paging, selected retrieval, stale refusal, and rebuild/reload without a Claude session or model calls, then removes its copy. Existing Node tests run this rehearsal and check repeated setup creates independent workspaces without modifying the committed template.
+
+In your actual terminal or app, follow the printed launch commands and test keyboard focus, narrow layouts, scrolling, reference selection across pages, and draft append without sending. Edit only the temporary pricing source and verify the next retrieval clears stale results, then rebuild into the new printed filename and reload. Native tests exercise Previous/Next controls and verify packet pages concatenate to the complete packet on terminal/desktop/VS Code at a 40-column frame; they do not inspect rendered pixels or prove visual usability or savings.
+
+For your own standalone project, continue with `npm run symbols:index -- --project <absolute-tsconfig> --output <new-json>`. Generation runs in Node tooling, not the pane. Regenerate after new glob matches or unrecorded dependency changes; the reader checks only recorded inputs.
 
 ## API upgrades
 

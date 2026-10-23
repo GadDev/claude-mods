@@ -144,6 +144,9 @@ test('empty and populated panes support actual selection controls on terminal, d
     });
     expect(await ui.find({ key: 'index-path' })).toBeDefined();
     expect(reads).toBe(count);
+    await ui.press({ key: 'help' });
+    expect((await ui.find({ type: 'Code' }))?.text).toContain('npm run symbols:demo');
+    expect(reads).toBe(count);
     await ui.input({ key: 'index-path', text: 'index.json' });
     await ui.input({ key: 'symbol-query', text: 'answer' });
     await ui.press({ key: 'show-s1' });
@@ -157,6 +160,108 @@ test('empty and populated panes support actual selection controls on terminal, d
     expect(reads).toBe(after);
     await ui.press({ key: 'clear' });
     expect(await ui.find({ key: 'draft' })).toBeUndefined();
+    await ui.unmount();
+  }
+});
+
+test('guided paging preserves complete packet slices and selection; stale recovery retains the load path on all surfaces', async ($, on) => {
+  const source = 'export const target = "' + 'x'.repeat(9200) + '";\n' + 'target;\n'.repeat(17);
+  const content: Record<string, string> = { 'tsconfig.json': '{}', 'src/api.ts': source };
+  content['index.json'] = JSON.stringify({
+    kind: 'gaddev.symbol-index',
+    schemaVersion: 1,
+    compilerVersion: '6.0.3',
+    project: 'tsconfig.json',
+    inputs: [
+      { path: 'tsconfig.json', sha256: await fingerprint('{}'), kind: 'config' },
+      { path: 'src/api.ts', sha256: await fingerprint(source), kind: 'source' },
+    ],
+    symbols: Array.from({ length: 9 }, (_, i) => ({
+      id: `s${i + 1}`,
+      name: `target${i + 1}`,
+      definitions: [{ path: 'src/api.ts', line: 1, column: 14, endLine: 1 }],
+      references: Array.from({ length: 17 }, (_, j) => ({
+        path: 'src/api.ts',
+        line: j + 2,
+        column: 1,
+        endLine: j + 2,
+      })),
+    })),
+  });
+  on('session.cwd', () => ({ value: '/repo' }));
+  on('fs.stat', (_$, e) => ({
+    value: {
+      kind: e.path === '/repo' ? 'dir' : 'file',
+      size: content[e.path.slice(6)]?.length ?? 0,
+      mtimeMs: 0,
+      isLink: false,
+      realPath: e.path,
+    },
+  }));
+  let reads = 0;
+  on('fs.read', (_$, e) => {
+    reads++;
+    return { value: content[e.path.slice(6)] ?? '' };
+  });
+  const run = (args: string) =>
+    $.command.run({
+      command: 'symbol-navigator',
+      args,
+      origin: { kind: 'composer' },
+      presentation: { isFullscreen: false, columns: 80 },
+    });
+  for (const surface of ['terminal', 'desktop', 'vscode'] as const) {
+    content['src/api.ts'] = source;
+    const ui = await $.ui.mount({
+      plugin: 'symbol-navigator',
+      surface,
+      component: 'Pane',
+      requestId: 'symbol-navigator',
+      props: {
+        title: 'Symbol Navigator',
+        isFocused: true,
+        bodyColumns: 40,
+        placement: 'inline',
+        scroll: { offset: 0, bodyRows: 30 },
+        view: {},
+      },
+    });
+    await ui.input({ key: 'index-path', text: 'index.json' });
+    await ui.input({ key: 'symbol-query', text: 'target' });
+    expect(await ui.find({ key: 'results-previous' })).toBeUndefined();
+    await ui.press({ key: 'results-next' });
+    expect(await ui.find({ key: 'show-s9' })).toBeDefined();
+    expect(await ui.find({ key: 'results-next' })).toBeUndefined();
+    await ui.press({ key: 'results-previous' });
+    await ui.press({ key: 'show-s1' });
+    await ui.press({ key: 'references-next' });
+    await ui.press({ key: 'ref-9' });
+    await ui.press({ key: 'references-previous' });
+    await ui.press({ key: 'references-next' });
+    expect((await ui.find({ key: 'ref-9' }))?.text).toContain('Deselect');
+    const packet = (await run('preview')).text ?? '';
+    await ui.press({ key: 'preview' });
+    let assembled = '';
+    for (let offset = 0; offset < packet.length; offset += 4000) {
+      const code = await ui.find({ type: 'Code' });
+      expect(code?.props.source).toBe(packet.slice(offset, offset + 4000));
+      assembled += String(code?.props.source ?? '');
+      if (offset + 4000 < packet.length) await ui.press({ key: 'packet-next' });
+    }
+    expect(assembled).toBe(packet);
+    expect(await ui.find({ key: 'packet-next' })).toBeUndefined();
+    await ui.press({ key: 'packet-previous' });
+    expect((await ui.find({ type: 'Code' }))?.props.source).toBe(packet.slice(4000, 8000));
+    const after = reads;
+    await ui.drawn();
+    expect(reads).toBe(after);
+    content['src/api.ts'] = source + '// changed';
+    await ui.press({ key: 'packet-next' });
+    expect(await ui.find({ key: 'draft' })).toBeUndefined();
+    expect(await ui.find({ type: 'Code' })).toBeUndefined();
+    expect(JSON.stringify(await ui.drawn())).toContain('Rebuild');
+    expect((await ui.find({ key: 'index-path' }))?.props.value).toBe('index.json');
+    await ui.press({ key: 'clear' });
     await ui.unmount();
   }
 });
