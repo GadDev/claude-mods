@@ -49,6 +49,8 @@ For Instruction Workbench, add two project instruction files with an intentional
 
 For Task Capsules, author a goal, decision, unresolved check, and one file reference in the pane. Export JSON, save only the JSON body to a local file, then import it in a fresh interactive session in the same project. Confirm that import alone does not read references, preview shows their status, and draft insertion appends without sending. Change a referenced file and verify draft insertion refuses it until explicit refresh/removal. Check malformed imports and missing prompt editors preserve notes. Inspect empty and populated panes on your actual terminal or app; native test trees do not prove visual layout.
 
+For Agent Budget Board, add two complete planned workers with overlapping scopes, including one planned writer. Review all report pages, verify that approval needs explicit warning acknowledgment, then narrow a scope and confirm review/approval reset. Exercise model preferences, access selection, and concurrency in the pane. Approved draft insertion must append without sending, starting agents, or changing host settings. Export/reload the plan and confirm approval is lost. Also inspect a disjoint plan and the suggested batches on your actual terminal or app; no live delegation or cost measurement is part of native tests.
+
 ## API upgrades
 
 Read [Anthropic's mod creation guide](https://code.claude.com/docs/en/plugins/mods/create) and regenerate your installed types using `/plugin-types`. Review the declaration diff before changing the pinned official revision and checksum in `scripts/fetch-mod-types.ts`. Keep the documented baseline, source APIs, CI, and smoke-test results aligned. Never suppress incompatible API fields with `any`.

@@ -31,6 +31,11 @@
       "name": "task-capsules",
       "source": "./mods/task-capsules",
       "description": "Prepare a reviewed human-authored handoff with explicit JSON export/import and file text fingerprints."
+    },
+    {
+      "name": "agent-budget-board",
+      "source": "./mods/agent-budget-board",
+      "description": "Review planned agent roles, lexical scope overlap, model preferences, and suggested concurrency without starting workers."
     }
   ]
 }

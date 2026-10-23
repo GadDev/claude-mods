@@ -9,7 +9,7 @@ An independent collection by [GadDev](https://github.com/GadDev). Each mod is an
 
 ## Available mods
 
-Each available mod has its own icon, documentation, and installation. Context Studio is at version 1.0.0; Output Lens, Retry Map, Instruction Workbench, and Task Capsules are experimental prototypes at version 0.1.0.
+Each available mod has its own icon, documentation, and installation. Context Studio is at version 1.0.0; Output Lens, Retry Map, Instruction Workbench, Task Capsules, and Agent Budget Board are experimental prototypes at version 0.1.0.
 
 | Icon                                                                                                                                       | Mod                                                           | What it helps you do                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -18,15 +18,15 @@ Each available mod has its own icon, documentation, and installation. Context St
 | <img src="mods/retry-map/assets/icon.png" width="80" alt="Retry Map: a looping path with a breakout arrow" />                              | [Retry Map](mods/retry-map/README.md)                         | Recognize identical Bash failures and inspect retry history without blocking commands or changing tool results.                            |
 | <img src="mods/instruction-workbench/assets/icon.png" width="80" alt="Instruction Workbench: instruction cards on a drafting workbench" /> | [Instruction Workbench](mods/instruction-workbench/README.md) | Review selected instruction files, exact duplicate lines, source locations, and consolidation proposals without model calls or file edits. |
 | <img src="mods/task-capsules/assets/icon.png" width="80" alt="Task Capsules: a compact capsule holding a task card" />                     | [Task Capsules](mods/task-capsules/README.md)                 | Edit a small handoff with goals, decisions, file hashes, and unresolved checks; explicitly export/import it for another session.           |
+| <img src="mods/agent-budget-board/assets/icon.png" width="80" alt="Agent Budget Board: task tiles connected to a resource dial" />         | [Agent Budget Board](mods/agent-budget-board/README.md)       | Review worker roles, scope overlap, model preferences, and suggested concurrency; locally approve or narrow the plan before delegation.    |
 
 ## Planned mods
 
-These two concepts have custom artwork and a [roadmap](docs/roadmap.md), but are not installable yet.
+Symbol Navigator has custom artwork and a [roadmap](docs/roadmap.md), but is not installable yet.
 
-| Icon                                                                                                                                | Mod                | Planned purpose                                                          |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------ |
-| <img src="docs/assets/icons/agent-budget-board.png" width="80" alt="Agent Budget Board: task tiles connected to a resource dial" /> | Agent Budget Board | Preview worker scope and resource choices before starting agents.        |
-| <img src="docs/assets/icons/symbol-navigator.png" width="80" alt="Symbol Navigator: code braces around a compass" />                | Symbol Navigator   | Select definitions and references with provenance and bounded retrieval. |
+| Icon                                                                                                                 | Mod              | Planned purpose                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------ |
+| <img src="docs/assets/icons/symbol-navigator.png" width="80" alt="Symbol Navigator: code braces around a compass" /> | Symbol Navigator | Select definitions and references with provenance and bounded retrieval. |
 
 See the [icon gallery](docs/icons.md) for the original artwork and asset details.
 
@@ -70,6 +70,16 @@ Open `/instruction-workbench` for the review pane. Source references and fingerp
 ```
 
 Copy the complete exported JSON to a local file, then use `/task-capsules import <capsule.json>` in a fresh session in the intended project. Preview it and choose **Append verified handoff to current draft** when ready. The mod does not autosave, submit prompts, or launch sessions. See [the handoff workflow and freshness limits](mods/task-capsules/README.md).
+
+## Try Agent Budget Board
+
+```text
+/plugin install agent-budget-board@gaddev-mods
+/reload-plugins
+/agent-budget-board
+```
+
+Add planned workers, edit their roles/tasks/scopes/model preferences, and choose requested concurrency. Review the report, narrow overlaps or explicitly acknowledge warnings, then mark the saved plan approved locally. An approved plan can be appended to your draft. Approval starts no workers and grants no engine permissions; this is an advisory planning step, not a billing or live-concurrency limit. See [usage and limits](mods/agent-budget-board/README.md).
 
 ## Try Context Studio
 
@@ -121,6 +131,7 @@ The type-fetch step verifies a pinned copy of Anthropic's official declarations.
 - [Retry Map usage and commands](mods/retry-map/README.md)
 - [Instruction Workbench usage and commands](mods/instruction-workbench/README.md)
 - [Task Capsules usage and commands](mods/task-capsules/README.md)
+- [Agent Budget Board usage and commands](mods/agent-budget-board/README.md)
 - [Architecture and repository structure](docs/architecture.md)
 - [Development and testing](docs/development.md)
 - [Compatibility and troubleshooting](docs/compatibility.md)

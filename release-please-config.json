@@ -89,6 +89,23 @@
           "jsonpath": "$['packages']['mods/task-capsules']['version']"
         }
       ]
+    },
+    "mods/agent-budget-board": {
+      "release-type": "node",
+      "component": "agent-budget-board",
+      "package-name": "@gaddev/agent-budget-board",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": ".claude-plugin/plugin.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "/package-lock.json",
+          "jsonpath": "$['packages']['mods/agent-budget-board']['version']"
+        }
+      ]
     }
   }
 }

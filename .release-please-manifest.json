@@ -3,5 +3,6 @@
   "mods/output-lens": "0.0.0",
   "mods/retry-map": "0.0.0",
   "mods/instruction-workbench": "0.0.0",
-  "mods/task-capsules": "0.0.0"
+  "mods/task-capsules": "0.0.0",
+  "mods/agent-budget-board": "0.0.0"
 }
