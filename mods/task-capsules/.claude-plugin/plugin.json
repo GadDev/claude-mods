@@ -10,9 +10,5 @@
   "repository": "https://github.com/GadDev/claude-mods",
   "license": "MIT",
   "icon": "./assets/icon.png",
-  "keywords": [
-    "handoff",
-    "context",
-    "mods"
-  ]
+  "keywords": ["handoff", "context", "mods"]
 }
