@@ -1,0 +1,7 @@
+{
+  "name": "@gaddev/symbol-navigator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT"
+}

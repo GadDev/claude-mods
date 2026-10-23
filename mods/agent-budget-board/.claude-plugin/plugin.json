@@ -1,6 +1,6 @@
 {
   "name": "agent-budget-board",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Review planned worker roles, scope overlap, model preferences, and concurrency before deciding whether to delegate.",
   "author": {
     "name": "GadDev",

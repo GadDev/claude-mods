@@ -56,3 +56,13 @@ dependencies:
 'area: agent-budget-board':
   - changed-files:
       - any-glob-to-any-file: ['mods/agent-budget-board/**', 'tests/agent-budget-board.test.ts']
+'area: symbol-navigator':
+  - changed-files:
+      - any-glob-to-any-file:
+          [
+            'mods/symbol-navigator/**',
+            'scripts/index-symbols.ts',
+            'scripts/lib/symbol-index.ts',
+            'tests/symbol-navigator.test.ts',
+            'tests/symbol-index.test.ts',
+          ]
