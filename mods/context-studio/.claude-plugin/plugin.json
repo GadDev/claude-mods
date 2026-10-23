@@ -1,6 +1,6 @@
 {
   "name": "context-studio",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Select local source excerpts, inspect a task packet, and prepare a prompt draft.",
   "author": {
     "name": "GadDev",
@@ -10,5 +10,9 @@
   "repository": "https://github.com/GadDev/claude-mods",
   "license": "MIT",
   "icon": "./assets/icon.png",
-  "keywords": ["context", "productivity", "mods"]
+  "keywords": [
+    "context",
+    "productivity",
+    "mods"
+  ]
 }
