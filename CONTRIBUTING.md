@@ -19,7 +19,7 @@ Use Node.js 24+, TypeScript strict mode, ESM, two-space indentation, and LF line
 - `npm run lint` checks the repository; `npm run lint:fix` applies available fixes.
 - `npm run format` formats files; `npm run format:check` checks without writing.
 - `npm run check:staged` runs the commit checks manually.
-- `npm run check` includes lint, format, validation, types, and tests, including native checks. CI and releases run this full command with `HUSKY=0`.
+- `npm run check` includes lint, format, validation, types, and tests, including native checks. CI runs the equivalent commands as named steps, and release verification runs the full command. Both use `HUSKY=0`. See [CI behavior](docs/development.md#ci) for the required `Check` status.
 
 Oxc configuration excludes caches and generated output. Oxfmt leaves generated changelogs to Release Please and automatically ignores lockfiles. Keep the lockfile committed after dependency updates.
 

@@ -4,33 +4,48 @@ on:
     branches: [main]
   workflow_dispatch:
 env:
-  HUSKY: 0
+  HUSKY: '0'
 permissions:
   contents: read
 concurrency:
   group: release-main
   cancel-in-progress: false
 jobs:
-  release:
+  verify:
+    name: Verify release revision
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
+    steps:
+      - name: Check out the exact main revision
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js and the npm download cache
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install locked dependencies
+        run: npm ci --prefer-offline --no-audit --no-fund
+      - name: Fetch checksum-verified Claude API declarations
+        run: npm run types:fetch
+      - name: Verify the exact main revision before release operations
+        run: npm run check
+  release:
+    name: Release Please
+    needs: verify
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
       contents: write
       pull-requests: write
       issues: write
     steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run types:fetch
-      - name: Verify the exact main revision before release operations
-        run: npm run check
+      # A fresh runner runs only the pinned API-based action: no checkout, npm, or PR code.
       - name: Prepare version PRs or publish approved GitHub releases
         uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4
         with:

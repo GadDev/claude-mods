@@ -22,7 +22,7 @@ Intent and area labels organize PRs. They do not replace Conventional Commit mes
 
 ## Repository setup
 
-Enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests** if you use `GITHUB_TOKEN` for Release Please. The workflow requests write access only in its release job. Recommended branch protection: require the `Check` job, review changes before merging, and use squash merges with Conventional Commit titles. These are setup instructions, not settings automatically changed by this repository.
+Enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests** if you use `GITHUB_TOKEN` for Release Please. The workflow verifies the exact triggering main commit in a read-only job. Only the dependent Release Please job receives write access; it runs on a fresh runner with no project checkout, dependency installation, or tests. Recommended branch protection: require the **`Check`** status from GitHub Actions, review changes before merging, and use squash merges with Conventional Commit titles. These are setup instructions, not settings automatically changed by this repository.
 
 The release workflow uses optional `GH_TOKEN`, falling back to `GITHUB_TOKEN`. If your organization blocks bot PR creation or you want CI to trigger automatically on release PRs, configure a narrowly scoped GitHub App token or a fine-grained PAT as `GH_TOKEN`, with repository contents, pull requests, and issues write access. Never commit the token. The existing skills repository's secret is not automatically shared with this repository.
 
