@@ -1,6 +1,6 @@
 {
   "name": "task-capsules",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Build a human-authored task handoff with decisions, unresolved checks, and verified file references.",
   "author": {
     "name": "GadDev",
@@ -10,5 +10,9 @@
   "repository": "https://github.com/GadDev/claude-mods",
   "license": "MIT",
   "icon": "./assets/icon.png",
-  "keywords": ["handoff", "context", "mods"]
+  "keywords": [
+    "handoff",
+    "context",
+    "mods"
+  ]
 }
