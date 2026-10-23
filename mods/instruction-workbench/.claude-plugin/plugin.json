@@ -10,9 +10,5 @@
   "repository": "https://github.com/GadDev/claude-mods",
   "license": "MIT",
   "icon": "./assets/icon.png",
-  "keywords": [
-    "instructions",
-    "context",
-    "mods"
-  ]
+  "keywords": ["instructions", "context", "mods"]
 }
