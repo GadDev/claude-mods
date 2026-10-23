@@ -1,6 +1,6 @@
 {
   "name": "instruction-workbench",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Review selected instruction sources and exact duplicate guidance locally, with source references and review-only proposals.",
   "author": {
     "name": "GadDev",
@@ -10,5 +10,9 @@
   "repository": "https://github.com/GadDev/claude-mods",
   "license": "MIT",
   "icon": "./assets/icon.png",
-  "keywords": ["instructions", "context", "mods"]
+  "keywords": [
+    "instructions",
+    "context",
+    "mods"
+  ]
 }
