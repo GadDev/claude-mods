@@ -72,6 +72,23 @@
           "jsonpath": "$['packages']['mods/instruction-workbench']['version']"
         }
       ]
+    },
+    "mods/task-capsules": {
+      "release-type": "node",
+      "component": "task-capsules",
+      "package-name": "@gaddev/task-capsules",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": ".claude-plugin/plugin.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "/package-lock.json",
+          "jsonpath": "$['packages']['mods/task-capsules']['version']"
+        }
+      ]
     }
   }
 }

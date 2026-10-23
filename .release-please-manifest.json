@@ -2,5 +2,6 @@
   "mods/context-studio": "1.0.0",
   "mods/output-lens": "0.0.0",
   "mods/retry-map": "0.0.0",
-  "mods/instruction-workbench": "0.0.0"
+  "mods/instruction-workbench": "0.0.0",
+  "mods/task-capsules": "0.0.0"
 }

@@ -26,6 +26,11 @@
       "name": "instruction-workbench",
       "source": "./mods/instruction-workbench",
       "description": "Review explicitly selected instruction files for exact duplicate guidance without model calls or file edits."
+    },
+    {
+      "name": "task-capsules",
+      "source": "./mods/task-capsules",
+      "description": "Prepare a reviewed human-authored handoff with explicit JSON export/import and file text fingerprints."
     }
   ]
 }
