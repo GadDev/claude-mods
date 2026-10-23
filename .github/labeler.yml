@@ -16,6 +16,12 @@ dependencies:
 'area: context-studio':
   - changed-files:
       - any-glob-to-any-file: ['mods/context-studio/**', 'tests/studio.test.ts', 'tests/runtime.test.ts']
+'area: output-lens':
+  - changed-files:
+      - any-glob-to-any-file: ['mods/output-lens/**', 'tests/output-lens.test.ts']
+'area: retry-map':
+  - changed-files:
+      - any-glob-to-any-file: ['mods/retry-map/**', 'tests/retry-map.test.ts']
 'area: infrastructure':
   - changed-files:
       - any-glob-to-any-file: ['.github/**', 'scripts/**', 'tsconfig*.json', 'package*.json', '.claude-plugin/**', '*release-please*.json']

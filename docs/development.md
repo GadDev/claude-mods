@@ -39,7 +39,11 @@ Inside that session:
 
 Verify the pane with `/context-studio`. Check keyboard focus, wrapping in a narrow terminal, removal controls, appending to an existing draft, and dismissal. Confirm opening the pane performs no source reads or model calls. Then edit the selected source outside the mod and verify that preview/draft refuses the stale snapshot. Clear and resume a session and verify the old packet disappears.
 
-Run `claude plugin validate` again after changes. The tests in `mods/context-studio/tests/` use `claude-code/testing`; the root `tests/` use Node. Keep their runners separate. Native test results do not replace a manual smoke test with your own terminal or app.
+Run `claude plugin validate` again after changes. The tests in each `mods/<name>/tests/` use `claude-code/testing`; the root `tests/` use Node. Keep their runners separate. Native test results do not replace a manual smoke test with your own terminal or app.
+
+For Output Lens, generate a JSON report with your installed Vitest, then use `/output-lens load <path.json>` and inspect it through both the pane and `mcp__output-lens__report`. Replace the report and verify stale selection is rejected. The committed mixed-result fixture was captured from Vitest 5.0.5, with environment-specific paths normalized. It includes pass, failure, skipped, and todo cases; ongoing tests do not install or execute Vitest.
+
+For Retry Map, use a disposable project to repeat one failing command three times. Verify one warning appears and the original results remain intact. Change code with a file tool and verify a new comparison group, then run a successful command and inspect its resolved status. Shell and external edits are deliberately not inferred.
 
 ## API upgrades
 

@@ -2,11 +2,11 @@
 
 Seven original transparent PNG illustrations share a cut-paper identity: warm terracotta, muted sage, charcoal, tactile grain, and a distinct silhouette for each tool. They were generated individually with the built-in image generation tool on 22 October 2026. They are illustrations for documentation and listing artwork; use simple native text labels for small terminal controls.
 
-Only Context Studio is implemented. The other icons represent roadmap concepts.
+Context Studio, Output Lens, and Retry Map are implemented. The other four icons represent roadmap concepts.
 
 | Context Studio | Output Lens | Retry Map |
 | --- | --- | --- |
-| <img src="../mods/context-studio/assets/icon.png" width="160" alt="Open folio with selected source tabs" /> | <img src="assets/icons/output-lens.png" width="160" alt="Lens revealing useful diagnostic lines" /> | <img src="assets/icons/retry-map.png" width="160" alt="Looping path with a breakout arrow" /> |
+| <img src="../mods/context-studio/assets/icon.png" width="160" alt="Open folio with selected source tabs" /> | <img src="../mods/output-lens/assets/icon.png" width="160" alt="Lens revealing useful diagnostic lines" /> | <img src="../mods/retry-map/assets/icon.png" width="160" alt="Looping path with a breakout arrow" /> |
 
 | Instruction Workbench | Task Capsules | Agent Budget Board |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ Only Context Studio is implemented. The other icons represent roadmap concepts.
 
 ## Asset locations
 
-Context Studio's icon is shipped inside its plugin at `mods/context-studio/assets/icon.png` and declared in its manifest. The six concept assets are in `docs/assets/icons/`. All are square RGBA PNGs with transparency. Originals are retained without recompression or cropping. The icon set follows the repository's MIT license.
+Implemented mods ship their icons inside `mods/<name>/assets/icon.png`, declared in each manifest. The four remaining concept assets and the documentation originals for Output Lens and Retry Map are in `docs/assets/icons/`. All are square RGBA PNGs with transparency. Originals are retained without recompression or cropping. The icon set follows the repository's MIT license.
 
 ## Prompt set
 

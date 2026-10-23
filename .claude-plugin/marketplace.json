@@ -7,6 +7,16 @@
       "name": "context-studio",
       "source": "./mods/context-studio",
       "description": "Build a reviewed task packet from local source excerpts without a background model call."
+    },
+    {
+      "name": "output-lens",
+      "source": "./mods/output-lens",
+      "description": "Inspect a local Vitest report and retrieve concise diagnostics on demand."
+    },
+    {
+      "name": "retry-map",
+      "source": "./mods/retry-map",
+      "description": "Inspect repeated Bash tool failures without changing tool execution."
     }
   ]
 }

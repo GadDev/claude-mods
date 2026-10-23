@@ -23,3 +23,9 @@ For Pro/Max, compare available usage evidence cautiously. Local API-equivalent c
 | Tradeoffs | Missing context, extra retrieval, user effort, failures, uncertainty |
 
 Do not advertise a savings percentage until repeated end-to-end trials support it. No savings benchmark has been established for this prototype.
+
+## Output Lens and Retry Map
+
+For Output Lens, compare ordinary Vitest agent/minimal output against report generation plus concise retrieval, including follow-up diagnostic pages. Count the JSON preparation and any extra tool turns. A report-size reduction does not itself demonstrate lower total usage.
+
+For Retry Map, compare task success, repeated commands, user interruptions, and total usage with and without advisory warnings. Identical errors may be useful retries; do not label all grouped occurrences as waste or assign hypothetical dollar savings.

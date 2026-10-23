@@ -9,6 +9,8 @@
   { "name": "dependencies", "color": "0366D6", "description": "Dependency or GitHub Action updates." },
   { "name": "security", "color": "B60205", "description": "Security hardening or vulnerability remediation." },
   { "name": "area: context-studio", "color": "51796E", "description": "Context Studio implementation, tests, or documentation." },
+  { "name": "area: output-lens", "color": "8A4B35", "description": "Output Lens implementation, tests, or documentation." },
+  { "name": "area: retry-map", "color": "BC8A5F", "description": "Retry Map implementation, tests, or documentation." },
   { "name": "area: infrastructure", "color": "BFD4F2", "description": "Build, release, scripts, or repository configuration." },
   { "name": "priority: critical", "color": "B60205", "description": "Blocks release, security, or core availability." },
   { "name": "priority: high", "color": "D93F0B", "description": "High-impact issue to address soon." },

@@ -6,7 +6,7 @@
 
 The [skills repository](https://github.com/GadDev/skills/tree/main/.github) inspired the label names, CODEOWNERS, and PR template. It uses Changesets. This collection uses Release Please to update plugin metadata alongside package versions without adding a contributor changeset step.
 
-Context Studio's component updates its `package.json`, `.claude-plugin/plugin.json`, workspace version in the root lockfile, changelog, and release manifest. Tags use `context-studio-vX.Y.Z`. Each later mod gets its own component and version PR. The root development workspace is not a separately released product.
+Each implemented mod's component updates its `package.json`, `.claude-plugin/plugin.json`, workspace version in the root lockfile, changelog, and release manifest. Tags use `context-studio-vX.Y.Z`, `output-lens-vX.Y.Z`, or `retry-map-vX.Y.Z`. Each mod has its own component and version PR. The root development workspace is not a separately released product.
 
 The initial release manifest uses `0.0.0` as a bootstrap baseline, not as an existing published release. The working prototype starts at 0.1.0. Review the first release PR's proposed version before merging. Below 1.0, breaking changes bump the minor version; the API remains experimental.
 

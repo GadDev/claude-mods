@@ -11,9 +11,9 @@ Context Studio prepares additional source context for a task. It does not contro
 | Path | Responsibility |
 | --- | --- |
 | `.claude-plugin/marketplace.json` | Catalog of independently installable plugins |
-| `mods/context-studio/.claude-plugin/plugin.json` | Plugin metadata and version |
-| `mods/context-studio/hooks/` | Claude Code entry point and event handlers |
-| `mods/context-studio/src/` | Host-independent task packet and freshness logic |
+| `mods/<name>/.claude-plugin/plugin.json` | Independent plugin metadata and version |
+| `mods/<name>/hooks/` | Claude Code entry points and event handlers |
+| `mods/<name>/src/` | Host-independent domain logic |
 | `tests/` | Node tests for core behavior and runtime adapter contracts |
 | `scripts/` | Repository validation and pinned API-type retrieval |
 | `docs/` | Maintainer guidance, decisions, roadmap, and measurement |
@@ -32,6 +32,12 @@ The pane uses standard `Box`, `Text`, `Input`, `Button`, and `Code` elements. So
 Draft insertion uses `prompt.fill` with append mode. It preserves an existing draft and leaves sending to the user. A later file edit does not rewrite or retract a prepared draft.
 
 ## Sharing and packaging
+
+Output Lens loads a user-selected local JSON report through filesystem ports. Its parser validates counts and assertion evidence, formats bounded summaries, and pages complete diagnostics or raw report text. The registered `report` tool can only query this selection. Every query rechecks the report fingerprint and working directory. It does not observe a test process or verify the tested source revision; statuses describe report evidence only.
+
+Retry Map observes Bash outcomes after the existing tool chain returns. It groups exact command/error fingerprints per agent and observed file-tool edit period. A bounded history drives its pane. The original result is returned unchanged, including failures, denials, and permission behavior. Lifecycle generations prevent pending old observations from entering a new session. It has no filesystem port or model-facing tool.
+
+Both implementations remain self-contained. `scripts/check-native.ts` discovers every marketplace entry and runs native validation and tests with the pinned development CLI, so adding a plugin cannot silently omit its native checks.
 
 No runtime imports may escape a plugin directory. If two mods later share logic, extract a package and copy or bundle its required code into each installed artifact. Do not assume a sibling workspace exists in Claude Code's plugin cache.
 
