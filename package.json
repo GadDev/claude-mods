@@ -15,12 +15,22 @@
     "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.tools.json",
     "test": "node --test tests/*.test.ts",
     "validate": "node scripts/validate.ts",
-    "check:native": "claude plugin validate . && claude plugin validate ./mods/context-studio && claude plugin test ./mods/context-studio",
-    "check": "npm run validate && npm run typecheck && npm test && npm run check:native"
+    "check:native": "node scripts/check-native.ts",
+    "check": "npm run lint && npm run format:check && npm run validate && npm run typecheck && npm test && npm run check:native",
+    "lint": "oxlint --deny-warnings .",
+    "lint:fix": "oxlint --fix --deny-warnings .",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "prepare": "husky",
+    "check:staged": "lint-staged"
   },
   "devDependencies": {
     "@anthropic-ai/claude-code": "2.1.308",
     "@types/node": "26.6.5",
+    "husky": "9.1.7",
+    "lint-staged": "17.6.0",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
     "typescript": "7.0.2"
   }
 }

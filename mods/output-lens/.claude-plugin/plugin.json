@@ -1,0 +1,11 @@
+{
+  "name": "output-lens",
+  "version": "0.1.0",
+  "description": "Inspect a local Vitest JSON report and give Claude bounded diagnostics on demand.",
+  "author": { "name": "GadDev", "url": "https://github.com/GadDev" },
+  "homepage": "https://github.com/GadDev/claude-mods",
+  "repository": "https://github.com/GadDev/claude-mods",
+  "license": "MIT",
+  "icon": "./assets/icon.png",
+  "keywords": ["vitest", "diagnostics", "context", "mods"]
+}

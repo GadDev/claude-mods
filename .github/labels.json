@@ -1,19 +1,89 @@
 [
   { "name": "bug", "color": "D73A4A", "description": "Something is not working as intended." },
-  { "name": "enhancement", "color": "A2EEEF", "description": "New product capability or improvement." },
-  { "name": "documentation", "color": "0075CA", "description": "Documentation changes or improvements." },
-  { "name": "design", "color": "E4E669", "description": "Visual design, UX, icons, or interaction work." },
-  { "name": "accessibility", "color": "0E8A16", "description": "Accessibility and inclusive interaction improvements." },
+  {
+    "name": "enhancement",
+    "color": "A2EEEF",
+    "description": "New product capability or improvement."
+  },
+  {
+    "name": "documentation",
+    "color": "0075CA",
+    "description": "Documentation changes or improvements."
+  },
+  {
+    "name": "design",
+    "color": "E4E669",
+    "description": "Visual design, UX, icons, or interaction work."
+  },
+  {
+    "name": "accessibility",
+    "color": "0E8A16",
+    "description": "Accessibility and inclusive interaction improvements."
+  },
   { "name": "tests", "color": "1D76DB", "description": "Automated tests or test infrastructure." },
-  { "name": "ci/cd", "color": "5319E7", "description": "CI, delivery, release automation, or repository tooling." },
-  { "name": "dependencies", "color": "0366D6", "description": "Dependency or GitHub Action updates." },
-  { "name": "security", "color": "B60205", "description": "Security hardening or vulnerability remediation." },
-  { "name": "area: context-studio", "color": "51796E", "description": "Context Studio implementation, tests, or documentation." },
-  { "name": "area: infrastructure", "color": "BFD4F2", "description": "Build, release, scripts, or repository configuration." },
-  { "name": "priority: critical", "color": "B60205", "description": "Blocks release, security, or core availability." },
-  { "name": "priority: high", "color": "D93F0B", "description": "High-impact issue to address soon." },
-  { "name": "status: blocked", "color": "000000", "description": "Waiting for an external dependency or decision." },
-  { "name": "status: needs review", "color": "FBCA04", "description": "Ready for maintainer review." },
-  { "name": "autorelease: pending", "color": "EDEDED", "description": "Release Please version PR awaiting merge." },
-  { "name": "autorelease: tagged", "color": "0E8A16", "description": "Release Please has created the release tag." }
+  {
+    "name": "ci/cd",
+    "color": "5319E7",
+    "description": "CI, delivery, release automation, or repository tooling."
+  },
+  {
+    "name": "dependencies",
+    "color": "0366D6",
+    "description": "Dependency or GitHub Action updates."
+  },
+  {
+    "name": "security",
+    "color": "B60205",
+    "description": "Security hardening or vulnerability remediation."
+  },
+  {
+    "name": "area: context-studio",
+    "color": "51796E",
+    "description": "Context Studio implementation, tests, or documentation."
+  },
+  {
+    "name": "area: output-lens",
+    "color": "8A4B35",
+    "description": "Output Lens implementation, tests, or documentation."
+  },
+  {
+    "name": "area: retry-map",
+    "color": "BC8A5F",
+    "description": "Retry Map implementation, tests, or documentation."
+  },
+  {
+    "name": "area: infrastructure",
+    "color": "BFD4F2",
+    "description": "Build, release, scripts, or repository configuration."
+  },
+  {
+    "name": "priority: critical",
+    "color": "B60205",
+    "description": "Blocks release, security, or core availability."
+  },
+  {
+    "name": "priority: high",
+    "color": "D93F0B",
+    "description": "High-impact issue to address soon."
+  },
+  {
+    "name": "status: blocked",
+    "color": "000000",
+    "description": "Waiting for an external dependency or decision."
+  },
+  {
+    "name": "status: needs review",
+    "color": "FBCA04",
+    "description": "Ready for maintainer review."
+  },
+  {
+    "name": "autorelease: pending",
+    "color": "EDEDED",
+    "description": "Release Please version PR awaiting merge."
+  },
+  {
+    "name": "autorelease: tagged",
+    "color": "0E8A16",
+    "description": "Release Please has created the release tag."
+  }
 ]

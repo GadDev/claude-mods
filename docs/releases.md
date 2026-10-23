@@ -6,9 +6,9 @@
 
 The [skills repository](https://github.com/GadDev/skills/tree/main/.github) inspired the label names, CODEOWNERS, and PR template. It uses Changesets. This collection uses Release Please to update plugin metadata alongside package versions without adding a contributor changeset step.
 
-Context Studio's component updates its `package.json`, `.claude-plugin/plugin.json`, workspace version in the root lockfile, changelog, and release manifest. Tags use `context-studio-vX.Y.Z`. Each later mod gets its own component and version PR. The root development workspace is not a separately released product.
+Each implemented mod's component updates its `package.json`, `.claude-plugin/plugin.json`, workspace version in the root lockfile, changelog, and release manifest. Tags use `context-studio-vX.Y.Z`, `output-lens-vX.Y.Z`, or `retry-map-vX.Y.Z`. Each mod has its own component and version PR. The root development workspace is not a separately released product.
 
-The initial release manifest uses `0.0.0` as a bootstrap baseline, not as an existing published release. The working prototype starts at 0.1.0. Review the first release PR's proposed version before merging. Below 1.0, breaking changes bump the minor version; the API remains experimental.
+Context Studio's current version and release manifest baseline are `1.0.0`. Output Lens and Retry Map use `0.0.0` as their release manifest bootstrap baseline and `0.1.0` in the working prototypes. Review each new component's first release PR before merging. Below 1.0, breaking changes bump the minor version; those APIs remain experimental. Preserve existing release versions, manifest entries, and generated changelogs when integrating branches.
 
 ## Normal flow
 
@@ -22,7 +22,7 @@ Intent and area labels organize PRs. They do not replace Conventional Commit mes
 
 ## Repository setup
 
-Enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests** if you use `GITHUB_TOKEN` for Release Please. The workflow requests write access only in its release job. Recommended branch protection: require the `Check` job, review changes before merging, and use squash merges with Conventional Commit titles. These are setup instructions, not settings automatically changed by this repository.
+Enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests** if you use `GITHUB_TOKEN` for Release Please. The workflow verifies the exact triggering main commit in a read-only job. Only the dependent Release Please job receives write access; it runs on a fresh runner with no project checkout, dependency installation, or tests. Recommended branch protection: require the **`Check`** status from GitHub Actions, review changes before merging, and use squash merges with Conventional Commit titles. These are setup instructions, not settings automatically changed by this repository.
 
 The release workflow uses optional `GH_TOKEN`, falling back to `GITHUB_TOKEN`. If your organization blocks bot PR creation or you want CI to trigger automatically on release PRs, configure a narrowly scoped GitHub App token or a fine-grained PAT as `GH_TOKEN`, with repository contents, pull requests, and issues write access. Never commit the token. The existing skills repository's secret is not automatically shared with this repository.
 

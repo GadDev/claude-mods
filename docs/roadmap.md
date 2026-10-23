@@ -1,16 +1,16 @@
 # Roadmap
 
-Only Context Studio is implemented. This roadmap is a sequence of hypotheses to validate, not a promise to ship every mod.
+Context Studio, Output Lens, and Retry Map have experimental implementations. This roadmap is a sequence of hypotheses to validate, not a promise to ship every mod.
 
-| Mod | User action | Next useful milestone |
-| --- | --- | --- |
-| Context Studio | Select source excerpts and prepare a reviewed task packet | Native CLI validation, surface smoke tests, then paired usage trials |
-| Output Lens | Expand a concise test result into complete diagnostics | Vitest parser preserving exit status, crashes, and full local evidence |
-| Retry Map | Inspect repeated failures and what changed between attempts | Exact command/error signatures with advisory warnings |
-| Instruction Workbench | Review instruction duplication and scope | Read-only audit with source references and proposed edits |
-| Task Capsules | Prepare a small handoff for a separate task | Explicit save/load with reviewed decisions and source freshness |
-| Agent Budget Board | Review worker scope and resource choices | Advisory agent-start preview without automatic model changes |
-| Symbol Navigator | Select definitions and references precisely | TypeScript symbol index with provenance and bounded retrieval |
+| Mod                   | User action                                                                  | Next useful milestone                                                                                                            |
+| --------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Context Studio        | Select source excerpts and prepare a reviewed task packet                    | Native CLI validation, surface smoke tests, then paired usage trials                                                             |
+| Output Lens           | Inspect a selected Vitest JSON report, then retrieve individual diagnostics  | Compare against Vitest's built-in agent reporter; add observed process exit provenance only through a separately designed runner |
+| Retry Map             | Inspect identical Bash failures per agent and observed file-tool edit period | Live smoke tests and evaluate warning usefulness; shell/external changes remain outside its observations                         |
+| Instruction Workbench | Review instruction duplication and scope                                     | Read-only audit with source references and proposed edits                                                                        |
+| Task Capsules         | Prepare a small handoff for a separate task                                  | Explicit save/load with reviewed decisions and source freshness                                                                  |
+| Agent Budget Board    | Review worker scope and resource choices                                     | Advisory agent-start preview without automatic model changes                                                                     |
+| Symbol Navigator      | Select definitions and references precisely                                  | TypeScript symbol index with provenance and bounded retrieval                                                                    |
 
 ## Context Studio progression
 

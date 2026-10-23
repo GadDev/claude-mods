@@ -11,7 +11,37 @@
       "package-name": "@gaddev/context-studio",
       "extra-files": [
         { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" },
-        { "type": "json", "path": "/package-lock.json", "jsonpath": "$['packages']['mods/context-studio']['version']" }
+        {
+          "type": "json",
+          "path": "/package-lock.json",
+          "jsonpath": "$['packages']['mods/context-studio']['version']"
+        }
+      ]
+    },
+    "mods/output-lens": {
+      "release-type": "node",
+      "component": "output-lens",
+      "package-name": "@gaddev/output-lens",
+      "extra-files": [
+        { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" },
+        {
+          "type": "json",
+          "path": "/package-lock.json",
+          "jsonpath": "$['packages']['mods/output-lens']['version']"
+        }
+      ]
+    },
+    "mods/retry-map": {
+      "release-type": "node",
+      "component": "retry-map",
+      "package-name": "@gaddev/retry-map",
+      "extra-files": [
+        { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" },
+        {
+          "type": "json",
+          "path": "/package-lock.json",
+          "jsonpath": "$['packages']['mods/retry-map']['version']"
+        }
       ]
     }
   }

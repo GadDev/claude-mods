@@ -2,7 +2,7 @@
 
 <img src="assets/icon.png" width="112" alt="Context Studio: an open folio gathering selected source tabs" />
 
-**Experimental 0.1.0.** A small task-packet builder for Claude Code. Select exact source ranges, inspect the result, and append it to a prompt draft for human review.
+**Version 1.0.0.** A small task-packet builder for Claude Code. Select exact source ranges, inspect the result, and append it to a prompt draft for human review.
 
 ## Install
 
@@ -23,15 +23,15 @@ The pane shows a character count and a **rough characters ÷ 4 token estimate** 
 
 ## Commands
 
-| Command | Action |
-| --- | --- |
-| `/context-studio` | Open the pane |
-| `/context-studio goal Fix pagination boundaries` | Set the task |
-| `/context-studio add src/pagination.ts:1-25` | Add a source excerpt |
-| `/context-studio remove 1` | Remove the first excerpt |
-| `/context-studio preview` | Verify sources and print the packet |
-| `/context-studio draft` | Verify and append the packet to the prompt editor |
-| `/context-studio clear` | Clear task and excerpts |
+| Command                                          | Action                                            |
+| ------------------------------------------------ | ------------------------------------------------- |
+| `/context-studio`                                | Open the pane                                     |
+| `/context-studio goal Fix pagination boundaries` | Set the task                                      |
+| `/context-studio add src/pagination.ts:1-25`     | Add a source excerpt                              |
+| `/context-studio remove 1`                       | Remove the first excerpt                          |
+| `/context-studio preview`                        | Verify sources and print the packet               |
+| `/context-studio draft`                          | Verify and append the packet to the prompt editor |
+| `/context-studio clear`                          | Clear task and excerpts                           |
 
 Paths may contain spaces. They must be relative to the current working directory, use forward slashes, and name supported text files. Ranges are inclusive. Empty files cannot provide an excerpt.
 

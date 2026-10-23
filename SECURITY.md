@@ -15,3 +15,9 @@ Appending is not sending. When you send the draft, its source excerpts go to you
 File resolution and reads are separate filesystem operations. This prototype is not a sandbox against hostile local processes swapping symlinks or files during a read. Do not use it to inspect an actively hostile workspace. A saved draft is not continuously monitored; regenerate it after edits.
 
 Claude Code mods run with your account's permissions. Inspect any mod before installing it; our narrower behavior is an implementation choice, not an engine sandbox.
+
+## Other mods
+
+Output Lens reads a user-selected local JSON report and exposes bounded report views through a registered tool. Revalidation checks report integrity, not whether current source files were tested. It neither executes tests nor observes the runner's exit code, stdout, or stderr. Source reports remain local until requested content enters model context. Paths and diagnostics can contain sensitive data; inspect them before sharing.
+
+Retry Map observes Bash errors and successful file-tool calls. It retains bounded command/error samples in session memory, displays them on request, and writes one local UI note when a repeat threshold is reached. It does not read files, intercept prompts, change tool results, retry commands, approve tools, persist history, or make model/network calls. Repetition is advisory: external and shell-driven changes may not be visible to it.
