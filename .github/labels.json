@@ -103,5 +103,10 @@
     "name": "area: task-capsules",
     "color": "51796E",
     "description": "Task Capsules plugin and tests."
+  },
+  {
+    "name": "area: agent-budget-board",
+    "color": "51796E",
+    "description": "Agent Budget Board plugin and tests."
   }
 ]
