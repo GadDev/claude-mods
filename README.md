@@ -76,13 +76,16 @@ Add planned workers, edit their roles/tasks/scopes/model preferences, and choose
 
 ## Try Symbol Navigator
 
-From a checkout of this repository with Node 24+ and `npm ci` completed:
+From a checkout of this repository with Node 24+:
 
 ```sh
-npm run symbols:index -- --project /absolute/project/tsconfig.json --output /absolute/project/symbol-index.json
+npm ci
+npm run symbols:demo
 ```
 
-Start Claude Code in the directory containing that tsconfig, install `symbol-navigator@gaddev-mods`, and open `/symbol-navigator`. Load `symbol-index.json`, search a name, choose its definition, and select reference locations. Preview verifies recorded inputs; draft insertion appends without sending. The compiler runs only in the explicit Node generation step. See [setup, supported projects, and freshness limits](mods/symbol-navigator/README.md).
+Follow the exact launch commands it prints, then load `symbol-index.json`, search `quoteTotal`, and choose the pricing definition. The demo creates a fresh temporary project, so you can try selection, paging, stale-source refusal, and rebuilding without changing a real project. The pane guides you through loading, finding, choosing, and previewing; Previous/Next buttons handle paging.
+
+See the [guided test drive](examples/symbol-navigator/README.md) and [your-own-project setup and limits](mods/symbol-navigator/README.md#generate-an-index). To rehearse the demo without launching Claude or calling a model, run `npm run symbols:demo -- --check`.
 
 ## Try Context Studio
 

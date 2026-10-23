@@ -138,6 +138,17 @@ test('snapshot clones cannot change internal selection or provenance', async () 
   assert.equal(h.navigator.snapshot.active?.definitions[0]?.path, 'src/api.ts');
   assert.deepEqual(h.navigator.snapshot.selected, []);
 });
+test('a new valid search clears the previous definition and selections before preview', async () => {
+  const h = await fixture();
+  await h.load();
+  await h.navigator.show(h.files, 's1');
+  await h.navigator.select(h.files, 1);
+  await h.navigator.find(h.files, 'missing');
+  assert.equal(h.navigator.snapshot.matches, 0);
+  assert.equal(h.navigator.snapshot.active, undefined);
+  assert.deepEqual(h.navigator.snapshot.selected, []);
+  await assert.rejects(h.navigator.packet(h.files), /Choose a symbol/);
+});
 test('pagination exposes later matches and references with stable IDs and validated offsets', async () => {
   const h = await fixture();
   const symbol = h.data.symbols[0]!;

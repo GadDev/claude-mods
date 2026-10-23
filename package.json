@@ -23,7 +23,8 @@
     "format:check": "oxfmt --check .",
     "prepare": "husky",
     "check:staged": "lint-staged",
-    "symbols:index": "node scripts/index-symbols.ts"
+    "symbols:index": "node scripts/index-symbols.ts",
+    "symbols:demo": "node scripts/demo-symbols.ts"
   },
   "devDependencies": {
     "@anthropic-ai/claude-code": "2.1.308",
