@@ -1,5 +1,9 @@
 [
-  { "name": "bug", "color": "D73A4A", "description": "Something is not working as intended." },
+  {
+    "name": "bug",
+    "color": "D73A4A",
+    "description": "Something is not working as intended."
+  },
   {
     "name": "enhancement",
     "color": "A2EEEF",
@@ -20,7 +24,11 @@
     "color": "0E8A16",
     "description": "Accessibility and inclusive interaction improvements."
   },
-  { "name": "tests", "color": "1D76DB", "description": "Automated tests or test infrastructure." },
+  {
+    "name": "tests",
+    "color": "1D76DB",
+    "description": "Automated tests or test infrastructure."
+  },
   {
     "name": "ci/cd",
     "color": "5319E7",
@@ -85,5 +93,10 @@
     "name": "autorelease: tagged",
     "color": "0E8A16",
     "description": "Release Please has created the release tag."
+  },
+  {
+    "name": "area: instruction-workbench",
+    "color": "51796E",
+    "description": "Instruction Workbench plugin and tests."
   }
 ]

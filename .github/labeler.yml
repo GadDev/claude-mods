@@ -46,3 +46,7 @@ dependencies:
             '.claude-plugin/**',
             '*release-please*.json',
           ]
+'area: instruction-workbench':
+  - changed-files:
+      - any-glob-to-any-file:
+          ['mods/instruction-workbench/**', 'tests/instruction-workbench.test.ts']
