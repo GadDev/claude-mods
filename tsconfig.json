@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2023", "lib": ["ES2023"], "types": [],
+    "module": "ESNext", "moduleResolution": "Bundler",
+    "strict": true, "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true, "noUnusedLocals": true,
+    "noUnusedParameters": true, "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true, "noEmit": true, "skipLibCheck": true
+  },
+  "include": [".cache/mod-types/claude-code.d.ts", "mods/*/hooks/**/*.ts", "mods/*/src/**/*.ts", "mods/*/tests/**/*.ts"]
+}

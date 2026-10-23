@@ -1,0 +1,12 @@
+{
+  "name": "gaddev-mods",
+  "owner": { "name": "GadDev" },
+  "metadata": { "description": "Focused Claude Code mods for deliberate context and useful interfaces." },
+  "plugins": [
+    {
+      "name": "context-studio",
+      "source": "./mods/context-studio",
+      "description": "Build a reviewed task packet from local source excerpts without a background model call."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+name: Bug report
+description: Report incorrect behavior in a mod.
+labels: [bug]
+body:
+  - type: input
+    id: mod
+    attributes:
+      label: Mod and version
+      placeholder: context-studio 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Claude Code version, operating system, and surface
+      placeholder: CLI version, OS, terminal / Desktop / VS Code
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction, expected behavior, and actual behavior
+      description: Use a minimal example and remove secrets or private source code.
+    validations:
+      required: true

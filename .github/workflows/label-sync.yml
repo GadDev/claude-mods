@@ -1,0 +1,32 @@
+name: Sync repository labels
+on:
+  push:
+    branches: [main]
+    paths: ['.github/labels.json', '.github/workflows/label-sync.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: repository-label-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Create or update managed labels without removing others
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            const fs = require('node:fs');
+            const labels = JSON.parse(fs.readFileSync('.github/labels.json', 'utf8'));
+            const existing = await github.paginate(github.rest.issues.listLabelsForRepo, context.repo);
+            for (const label of labels) {
+              const current = existing.find(item => item.name.toLowerCase() === label.name.toLowerCase());
+              if (current) await github.rest.issues.updateLabel({ ...context.repo, name: current.name, new_name: label.name, color: label.color, description: label.description });
+              else await github.rest.issues.createLabel({ ...context.repo, ...label });
+            }
