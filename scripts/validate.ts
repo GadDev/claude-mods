@@ -38,10 +38,18 @@ const release = await json('release-please-config.json');
 for (const plugin of marketplace.plugins) {
   const path = plugin.source.slice(2);
   assert.ok(release.packages[path], `Missing release configuration for ${path}`);
-  assert.ok(release.packages[path]['extra-files'].some((file: { path: string }) => file.path === '.claude-plugin/plugin.json'));
+  assert.ok(
+    release.packages[path]['extra-files'].some(
+      (file: { path: string }) => file.path === '.claude-plugin/plugin.json',
+    ),
+  );
 }
-const labels = await json('.github/labels.json') as { name: string; color: string; description: string }[];
-assert.equal(new Set(labels.map(label => label.name)).size, labels.length);
+const labels = (await json('.github/labels.json')) as {
+  name: string;
+  color: string;
+  description: string;
+}[];
+assert.equal(new Set(labels.map((label) => label.name)).size, labels.length);
 for (const label of labels) {
   assert.match(label.color, /^[a-fA-F0-9]{6}$/);
   assert.ok(label.description.length <= 100);
@@ -50,7 +58,11 @@ for (const file of await readdir(resolve(root, '.github/workflows'))) {
   if (!file.endsWith('.yml')) continue;
   const text = await readFile(resolve(root, '.github/workflows', file), 'utf8');
   for (const match of text.matchAll(/uses:\s+([^\s#]+)/g)) {
-    assert.match(match[1] ?? '', /^[\w.-]+\/[\w./-]+@[a-f0-9]{40}$/, `${file}: pin third-party actions to full commit SHAs`);
+    assert.match(
+      match[1] ?? '',
+      /^[\w.-]+\/[\w./-]+@[a-f0-9]{40}$/,
+      `${file}: pin third-party actions to full commit SHAs`,
+    );
   }
 }
 
@@ -65,10 +77,14 @@ async function checkDocs(directory: string): Promise<void> {
       for (const match of text.matchAll(/(?<!!)\[[^\]]*\]\(([^\s)]+)\)/g)) {
         const link = match[1] ?? '';
         if (/^(?:https?:|mailto:|#)/.test(link)) continue;
-        await stat(resolve(dirname(path), link.split('#')[0] ?? '')).catch(() => { throw new Error(`Broken local link in ${path}: ${link}`); });
+        await stat(resolve(dirname(path), link.split('#')[0] ?? '')).catch(() => {
+          throw new Error(`Broken local link in ${path}: ${link}`);
+        });
       }
     }
   }
 }
 await checkDocs(root);
-console.log(`Validated ${names.size} plugin(s), release configuration, labels, pinned actions, and documentation links.`);
+console.log(
+  `Validated ${names.size} plugin(s), release configuration, labels, pinned actions, and documentation links.`,
+);

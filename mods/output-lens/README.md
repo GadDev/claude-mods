@@ -32,24 +32,24 @@ The pane shows report counts, failure diagnostics, source fingerprint, and raw/s
 
 After loading, ask Claude to **use the Output Lens report tool to inspect failures**. The tool `mcp__output-lens__report` returns only the requested view:
 
-| Input | Returned evidence |
-| --- | --- |
-| `{ "view": "summary" }` | Counts, reported outcome, warnings, and up to eight bounded diagnostic previews |
-| `{ "view": "failure", "index": 2, "offset": 0 }` | One diagnostic, up to 5,000 characters; index is 1-based |
-| `{ "view": "raw", "offset": 5000 }` | Up to 5,000 original JSON characters, with the next offset |
+| Input                                            | Returned evidence                                                               |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| `{ "view": "summary" }`                          | Counts, reported outcome, warnings, and up to eight bounded diagnostic previews |
+| `{ "view": "failure", "index": 2, "offset": 0 }` | One diagnostic, up to 5,000 characters; index is 1-based                        |
+| `{ "view": "raw", "offset": 5000 }`              | Up to 5,000 original JSON characters, with the next offset                      |
 
 The tool only reads the report explicitly selected by the user. It cannot choose another file, run tests, or change your code. Tool responses enter normal model context; opening and browsing the pane do not make model requests.
 
 ## Commands
 
-| Command | Action |
-| --- | --- |
-| `/output-lens` | Open the pane |
-| `/output-lens load <path.json>` | Load and validate a report |
-| `/output-lens summary` | Reverify the file and print its bounded summary |
-| `/output-lens failure <index> [offset]` | Page through one diagnostic |
-| `/output-lens raw [offset]` | Page through the original JSON |
-| `/output-lens clear` | Remove the selected report from session memory |
+| Command                                 | Action                                          |
+| --------------------------------------- | ----------------------------------------------- |
+| `/output-lens`                          | Open the pane                                   |
+| `/output-lens load <path.json>`         | Load and validate a report                      |
+| `/output-lens summary`                  | Reverify the file and print its bounded summary |
+| `/output-lens failure <index> [offset]` | Page through one diagnostic                     |
+| `/output-lens raw [offset]`             | Page through the original JSON                  |
+| `/output-lens clear`                    | Remove the selected report from session memory  |
 
 ## What the status means
 

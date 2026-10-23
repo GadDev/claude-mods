@@ -51,6 +51,26 @@ Read [Anthropic's mod creation guide](https://code.claude.com/docs/en/plugins/mo
 
 ## CI
 
-The `Check` job runs on pull requests, main pushes, and manual dispatch. It installs the committed lockfile, retrieves verified declarations, and runs all repository checks including native plugin validation and the Claude test kit. It does not run an authenticated live conversation.
+The **`Check`** job runs on every pull request (including drafts and base-branch edits), main pushes, and manual dispatch. Select exactly **`Check`**, from GitHub Actions, as the required status in branch protection. There are no path filters or job-level skip conditions that could hide this required status.
 
-Third-party actions are pinned to full SHAs and updated by Dependabot. PR code executes only in the read-only CI workflow. The `pull_request_target` labeler never checks out or runs PR code.
+It installs the committed lockfile once, using Node 24 and an npm download cache keyed by `package-lock.json`. `npm ci --prefer-offline --no-audit --no-fund` still validates the lockfile and package integrity; it avoids unnecessary audit/funding requests and prefers cached downloads. Dependencies are freshly installed; `node_modules` and test outputs are not cached. `HUSKY=0` disables hook installation only in CI; local hooks remain active.
+
+Named steps expose each required check:
+
+| Step                                     | Local command          |
+| ---------------------------------------- | ---------------------- |
+| Oxlint                                   | `npm run lint`         |
+| Oxfmt (check only, no formatting writes) | `npm run format:check` |
+| Repository metadata and documentation    | `npm run validate`     |
+| Verified Claude API declarations         | `npm run types:fetch`  |
+| TypeScript                               | `npm run typecheck`    |
+| Node tests                               | `npm test`             |
+| Native plugin validation and tests       | `npm run check:native` |
+
+After a successful install, independent checks continue if another check fails, giving useful diagnostics in one run. TypeScript requires a successful declaration fetch. No step uses `continue-on-error`: any failed required step fails `Check`, including installation or declaration retrieval. Cancellation stops remaining checks and never produces a successful result.
+
+One runner avoids repeated setup and installation for this small suite; a matrix or parallel jobs would add overhead. New runs cancel superseded runs of the same PR. Event-specific concurrency groups keep manual and push runs separate; main runs are not interrupted mid-check. GitHub concurrency may replace pending runs with the latest pending revision.
+
+The checks do not edit source or run an authenticated live conversation. Third-party actions remain pinned to full SHAs and updated by Dependabot. PR code executes with `contents: read`, no injected secrets, and no persisted checkout credentials. The `pull_request_target` labeler never checks out or runs PR code.
+
+Release verification remains independent of CI, so a manual release also checks its exact main revision. It runs with a read-only token; only a separate, dependent job receives write permissions and the optional release token. That fresh runner executes the pinned Release Please action without checking out the project or installing its dependencies.
