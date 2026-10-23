@@ -2,7 +2,7 @@
 
 Seven original transparent PNG illustrations share a cut-paper identity: warm terracotta, muted sage, charcoal, tactile grain, and a distinct silhouette for each tool. They were generated individually with the built-in image generation tool on 22 October 2026. They are illustrations for documentation and listing artwork; use simple native text labels for small terminal controls.
 
-Context Studio, Output Lens, Retry Map, Instruction Workbench, Task Capsules, and Agent Budget Board are implemented. Symbol Navigator remains a roadmap concept.
+All seven mods now have implementations and ship their original artwork.
 
 | Context Studio                                                                                              | Output Lens                                                                                                | Retry Map                                                                                            |
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -12,13 +12,13 @@ Context Studio, Output Lens, Retry Map, Instruction Workbench, Task Capsules, an
 | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | <img src="../mods/instruction-workbench/assets/icon.png" width="160" alt="Workbench with instruction cards and a ruler" /> | <img src="../mods/task-capsules/assets/icon.png" width="160" alt="Compact capsule holding a task card" /> | <img src="../mods/agent-budget-board/assets/icon.png" width="160" alt="Three task tiles connected to a resource dial" /> |
 
-<img src="assets/icons/symbol-navigator.png" width="160" alt="Symbol Navigator: code braces around a compass" />
+<img src="../mods/symbol-navigator/assets/icon.png" width="160" alt="Symbol Navigator: code braces around a compass" />
 
 **Symbol Navigator** — precise code navigation.
 
 ## Asset locations
 
-Implemented mods ship their icons inside `mods/<name>/assets/icon.png`, declared in each manifest. The remaining Symbol Navigator concept asset and the documentation originals for Output Lens, Retry Map, Instruction Workbench, Task Capsules, and Agent Budget Board are in `docs/assets/icons/`. All are square RGBA PNGs with transparency. Originals are retained without recompression or cropping. The icon set follows the repository's MIT license.
+Implemented mods ship their icons inside `mods/<name>/assets/icon.png`, declared in each manifest. Documentation originals for Output Lens, Retry Map, Instruction Workbench, Task Capsules, Agent Budget Board, and Symbol Navigator are in `docs/assets/icons/`. All are square RGBA PNGs with transparency. Originals are retained without recompression or cropping. The icon set follows the repository's MIT license.
 
 ## Prompt set
 

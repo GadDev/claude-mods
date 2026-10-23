@@ -6,9 +6,9 @@
 
 The [skills repository](https://github.com/GadDev/skills/tree/main/.github) inspired the label names, CODEOWNERS, and PR template. It uses Changesets. This collection uses Release Please to update plugin metadata alongside package versions without adding a contributor changeset step.
 
-Each implemented mod's component updates its `package.json`, `.claude-plugin/plugin.json`, workspace version in the root lockfile, changelog, and release manifest. Tags use `context-studio-vX.Y.Z`, `output-lens-vX.Y.Z`, `retry-map-vX.Y.Z`, `instruction-workbench-vX.Y.Z`, `task-capsules-vX.Y.Z`, or `agent-budget-board-vX.Y.Z`. Each mod has its own component and version PR. The root development workspace is not a separately released product.
+Each implemented mod's component updates its `package.json`, `.claude-plugin/plugin.json`, workspace version in the root lockfile, changelog, and release manifest. Tags use `context-studio-vX.Y.Z`, `output-lens-vX.Y.Z`, `retry-map-vX.Y.Z`, `instruction-workbench-vX.Y.Z`, `task-capsules-vX.Y.Z`, `agent-budget-board-vX.Y.Z`, or `symbol-navigator-vX.Y.Z`. Each mod has its own component and version PR. The root development workspace is not a separately released product.
 
-Context Studio's current version and release manifest baseline are `1.0.0`. Output Lens, Retry Map, Instruction Workbench, Task Capsules, and Agent Budget Board use `0.0.0` as their release manifest bootstrap baseline and `0.1.0` in the working prototypes. Review each new component's first release PR before merging. Below 1.0, breaking changes bump the minor version; those APIs remain experimental. Preserve existing release versions, manifest entries, and generated changelogs when integrating branches.
+Released versions live in each plugin manifest and `.release-please-manifest.json`. New Symbol Navigator uses `0.0.0` as its release manifest bootstrap baseline and `0.1.0` in the working prototype. Review each new component's first release PR before merging. Below 1.0, breaking changes bump the minor version; those APIs remain experimental. Preserve existing release versions, manifest entries, and generated changelogs when integrating branches.
 
 ## Normal flow
 

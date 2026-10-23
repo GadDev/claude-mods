@@ -108,5 +108,10 @@
     "name": "area: agent-budget-board",
     "color": "51796E",
     "description": "Agent Budget Board plugin and tests."
+  },
+  {
+    "name": "area: symbol-navigator",
+    "color": "51796E",
+    "description": "Symbol Navigator plugin, index generator, and tests."
   }
 ]

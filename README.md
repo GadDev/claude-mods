@@ -9,7 +9,7 @@ An independent collection by [GadDev](https://github.com/GadDev). Each mod is an
 
 ## Available mods
 
-Each available mod has its own icon, documentation, and installation. Context Studio is at version 1.0.0; Output Lens, Retry Map, Instruction Workbench, Task Capsules, and Agent Budget Board are experimental prototypes at version 0.1.0.
+Each available mod has its own icon, documentation, and installation. Versions are tracked in each plugin manifest; Symbol Navigator is the new experimental 0.1.0 prototype.
 
 | Icon                                                                                                                                       | Mod                                                           | What it helps you do                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -19,14 +19,7 @@ Each available mod has its own icon, documentation, and installation. Context St
 | <img src="mods/instruction-workbench/assets/icon.png" width="80" alt="Instruction Workbench: instruction cards on a drafting workbench" /> | [Instruction Workbench](mods/instruction-workbench/README.md) | Review selected instruction files, exact duplicate lines, source locations, and consolidation proposals without model calls or file edits. |
 | <img src="mods/task-capsules/assets/icon.png" width="80" alt="Task Capsules: a compact capsule holding a task card" />                     | [Task Capsules](mods/task-capsules/README.md)                 | Edit a small handoff with goals, decisions, file hashes, and unresolved checks; explicitly export/import it for another session.           |
 | <img src="mods/agent-budget-board/assets/icon.png" width="80" alt="Agent Budget Board: task tiles connected to a resource dial" />         | [Agent Budget Board](mods/agent-budget-board/README.md)       | Review worker roles, scope overlap, model preferences, and suggested concurrency; locally approve or narrow the plan before delegation.    |
-
-## Planned mods
-
-Symbol Navigator has custom artwork and a [roadmap](docs/roadmap.md), but is not installable yet.
-
-| Icon                                                                                                                 | Mod              | Planned purpose                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------ |
-| <img src="docs/assets/icons/symbol-navigator.png" width="80" alt="Symbol Navigator: code braces around a compass" /> | Symbol Navigator | Select definitions and references with provenance and bounded retrieval. |
+| <img src="mods/symbol-navigator/assets/icon.png" width="80" alt="Symbol Navigator: code braces around a compass" />                        | [Symbol Navigator](mods/symbol-navigator/README.md)           | Retrieve a TypeScript definition and selected references from an explicit local index, with recorded-input freshness checks.               |
 
 See the [icon gallery](docs/icons.md) for the original artwork and asset details.
 
@@ -81,9 +74,19 @@ Copy the complete exported JSON to a local file, then use `/task-capsules import
 
 Add planned workers, edit their roles/tasks/scopes/model preferences, and choose requested concurrency. Review the report, narrow overlaps or explicitly acknowledge warnings, then mark the saved plan approved locally. An approved plan can be appended to your draft. Approval starts no workers and grants no engine permissions; this is an advisory planning step, not a billing or live-concurrency limit. See [usage and limits](mods/agent-budget-board/README.md).
 
+## Try Symbol Navigator
+
+From a checkout of this repository with Node 24+ and `npm ci` completed:
+
+```sh
+npm run symbols:index -- --project /absolute/project/tsconfig.json --output /absolute/project/symbol-index.json
+```
+
+Start Claude Code in the directory containing that tsconfig, install `symbol-navigator@gaddev-mods`, and open `/symbol-navigator`. Load `symbol-index.json`, search a name, choose its definition, and select reference locations. Preview verifies recorded inputs; draft insertion appends without sending. The compiler runs only in the explicit Node generation step. See [setup, supported projects, and freshness limits](mods/symbol-navigator/README.md).
+
 ## Try Context Studio
 
-You need Claude Code CLI **2.1.287 or later**. Desktop and VS Code support depend on their bundled engine and available UI elements; see [compatibility](docs/compatibility.md). Node.js is only needed to develop this repository.
+You need Claude Code CLI **2.1.287 or later**. Desktop and VS Code support depend on their bundled engine and available UI elements; see [compatibility](docs/compatibility.md). Node.js is needed for repository development and explicit Symbol Navigator index generation; the installed native readers need no Node runtime.
 
 In Claude Code:
 
@@ -132,6 +135,7 @@ The type-fetch step verifies a pinned copy of Anthropic's official declarations.
 - [Instruction Workbench usage and commands](mods/instruction-workbench/README.md)
 - [Task Capsules usage and commands](mods/task-capsules/README.md)
 - [Agent Budget Board usage and commands](mods/agent-budget-board/README.md)
+- [Symbol Navigator usage and commands](mods/symbol-navigator/README.md)
 - [Architecture and repository structure](docs/architecture.md)
 - [Development and testing](docs/development.md)
 - [Compatibility and troubleshooting](docs/compatibility.md)

@@ -36,6 +36,11 @@
       "name": "agent-budget-board",
       "source": "./mods/agent-budget-board",
       "description": "Review planned agent roles, lexical scope overlap, model preferences, and suggested concurrency without starting workers."
+    },
+    {
+      "name": "symbol-navigator",
+      "source": "./mods/symbol-navigator",
+      "description": "Retrieve selected TypeScript definitions and references from an explicit local index, with recorded-input freshness checks."
     }
   ]
 }
