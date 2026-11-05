@@ -26,12 +26,12 @@
     "symbols:index": "node scripts/index-symbols.ts"
   },
   "devDependencies": {
-    "@anthropic-ai/claude-code": "2.1.308",
-    "@types/node": "26.6.5",
+    "@anthropic-ai/claude-code": "2.1.316",
+    "@types/node": "26.6.6",
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
-    "oxfmt": "0.74.0",
-    "oxlint": "1.89.0",
+    "oxfmt": "0.75.0",
+    "oxlint": "1.90.0",
     "typescript": "7.0.2",
     "typescript-compiler-api": "npm:typescript@6.0.3"
   }
